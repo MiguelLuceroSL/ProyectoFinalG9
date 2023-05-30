@@ -4,10 +4,21 @@
  */
 package AccesoADatos;
 
+import Entidades.Miembro;
+import java.sql.Connection;
+
 /**
  *
  * @author edu-1
  */
 public class MiembroData {
-    
+     public MiembroData(){
+        
+        Connection con = Conexion.getConexion();
+        
+    }
+     public  void guardarMiembro(Miembro miembro) {
+        
+        
+    }
 }

@@ -4,10 +4,23 @@
  */
 package AccesoADatos;
 
+
+import Entidades.Tarea;
+import java.sql.Connection;
+
 /**
  *
  * @author edu-1
  */
 public class TareaData {
-    
+     public TareaData(){
+        
+        Connection con = Conexion.getConexion();
+        
+    }
+     
+     public  void guardarTarea(Tarea tarea) {
+        
+        
+    }
 }

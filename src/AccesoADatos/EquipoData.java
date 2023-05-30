@@ -4,10 +4,17 @@
  */
 package AccesoADatos;
 
+import java.sql.Connection;
+
 /**
  *
  * @author edu-1
  */
 public class EquipoData {
     
+     public EquipoData(){
+        
+        Connection con = Conexion.getConexion();
+        
+    }
 }

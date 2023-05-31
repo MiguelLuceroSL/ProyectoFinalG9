@@ -20,6 +20,13 @@ public class Proyecto {
     public Proyecto() {
     }
 
+    public Proyecto(String nombre, String descripcion, LocalDate fechaInicio, boolean estado) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.estado = estado;
+    }
+    
     public Proyecto(int idProyecto, String nombre, String descripcion, LocalDate fechaInicio, boolean estado) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;

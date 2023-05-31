@@ -4,6 +4,7 @@
  */
 package AccesoADatos;
 
+import Entidades.Comentario;
 import java.sql.Connection;
 
 /**
@@ -14,6 +15,10 @@ public class ComentarioData {
      public ComentarioData(){
         
         Connection con = Conexion.getConexion();
+        
+    }
+     public  void guardarComentario(Comentario comentario) {
+        
         
     }
 }

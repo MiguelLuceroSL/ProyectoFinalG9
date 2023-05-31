@@ -4,10 +4,23 @@
  */
 package AccesoADatos;
 
+import Entidades.Proyecto;
+import java.sql.Connection;
+
 /**
  *
  * @author edu-1
  */
 public class ProyectoData {
     
+    public ProyectoData(){
+        
+        Connection con = Conexion.getConexion();
+        
+    }
+    
+    public  void guardarProyecto(Proyecto proyecto) {
+        
+        
+    }
 }

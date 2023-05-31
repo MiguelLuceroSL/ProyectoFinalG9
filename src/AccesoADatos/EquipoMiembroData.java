@@ -4,6 +4,8 @@
  */
 package AccesoADatos;
 
+
+import Entidades.EquipoMiembro;
 import java.sql.Connection;
 
 /**
@@ -16,4 +18,10 @@ public class EquipoMiembroData {
         Connection con = Conexion.getConexion();
         
     }
+     
+     public  void guardarEquipoMiembro(EquipoMiembro equipoMiembro) {
+        
+        
+    }
 }
+

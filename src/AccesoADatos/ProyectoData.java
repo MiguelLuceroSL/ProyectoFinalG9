@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ProyectoData {
@@ -38,5 +40,27 @@ public class ProyectoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Proyecto" + ex.getMessage());
         }
+    }
+    
+    public List<Proyecto> listarProyectos(){
+        List<Proyecto> listaP = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM proyecto";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {            
+                Proyecto proy = new Proyecto();
+                proy.setIdProyecto(rs.getInt("idProyecto"));
+                proy.setNombre(rs.getString("nombre"));
+                proy.setDescripcion(rs.getString("descripcion"));
+                proy.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
+                proy.setEstado(rs.getBoolean("estado"));
+                listaP.add(proy);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+        }
+        return listaP;
     }
 }

@@ -1,20 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidades;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author edu-1
- */
 public class Comentario {
+
     private int idCometario;
     private String comentario;
-     private LocalDate fechaAvance;
-     private int idTarea;
+    private LocalDate fechaAvance;
+    private int idTarea;
+
+    public Comentario(String comentario, LocalDate fechaAvance, int idTarea) {
+        this.comentario = comentario;
+        this.fechaAvance = fechaAvance;
+        this.idTarea = idTarea;
+    }
 
     public Comentario(int idCometario, String comentario, LocalDate fechaAvance, int idTarea) {
         this.idCometario = idCometario;
@@ -57,5 +56,5 @@ public class Comentario {
     public void setIdTarea(int idTarea) {
         this.idTarea = idTarea;
     }
-     
+
 }

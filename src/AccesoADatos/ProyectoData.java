@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package AccesoADatos;
 
 import Entidades.Proyecto;
@@ -19,12 +15,12 @@ public class ProyectoData {
     private Conexion conexion;
 
     public ProyectoData() {
-        Connection con = Conexion.getConexion();
+        con = Conexion.getConexion();
     }
 
     public void guardarProyecto(Proyecto proyecto) {
         try {
-            String sql = "INSERT INTO proyect(nombre, descripcion, fechaInicio, estado) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO proyecto(nombre, descripcion, fechaInicio, estado) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, proyecto.getNombre());
             ps.setString(2, proyecto.getDescripcion());

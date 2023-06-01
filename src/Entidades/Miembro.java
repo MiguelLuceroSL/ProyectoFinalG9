@@ -1,22 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidades;
 
-import java.time.LocalDate;
-
-/**
- *
- * @author edu-1
- */
 public class Miembro {
-     private int idMiembro;
-        private int dni;
+
+    private int idMiembro;
+    private int dni;
     private String nombre;
- private String apellido;
+    private String apellido;
     private boolean estado;
 
+    public Miembro(int dni, String nombre, String apellido, boolean estado) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.estado = estado;
+    }
+    
     public Miembro(int idMiembro, int dni, String nombre, String apellido, boolean estado) {
         this.idMiembro = idMiembro;
         this.dni = dni;
@@ -67,5 +65,5 @@ public class Miembro {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+
 }

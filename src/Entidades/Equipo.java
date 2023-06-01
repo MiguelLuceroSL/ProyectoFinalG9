@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidades;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author edu-1
- */
 public class Equipo {
      private int idProyecto;
         private int idEquipo;
@@ -19,6 +11,13 @@ public class Equipo {
     private boolean estado;
 
     public Equipo() {
+    }
+    
+    public Equipo(int idProyecto, String nombre, LocalDate fechaCreacion, boolean estado) {
+        this.idProyecto = idProyecto;
+        this.nombre = nombre;
+        this.fechaCreacion = fechaCreacion;
+        this.estado = estado;
     }
 
     public Equipo(int idProyecto, int idEquipo, String nombre, LocalDate fechaCreacion, boolean estado) {

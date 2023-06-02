@@ -69,7 +69,7 @@ public class ProyectoFinalG9 {
                     Proyecto proy = new Proyecto(nom, des, fecha, true);
                     proyD.guardarProyecto(proy);
                     break;
-                    
+
                 case 2:
                     System.out.println("Ingrese el nombre del equipo");
                     String nomE = leer.next();
@@ -83,9 +83,9 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaE = leer.nextInt();
                     fechaE = LocalDate.of(anioE, mesE, diaE);
-                    Equipo equipo = new Equipo(idE,nomE,fechaE,true);
+                    Equipo equipo = new Equipo(idE, nomE, fechaE, true);
                     equipoD.guardarEquipo(equipo);
-                break;
+                    break;
                 case 3:
                     System.out.println("Ingrese el apellido");
                     String apM = leer.next();
@@ -93,9 +93,9 @@ public class ProyectoFinalG9 {
                     String nomM = leer.next();
                     System.out.println("Ingrese el DNI");
                     int dniM = leer.nextInt();
-                    Miembro miembro = new Miembro(dniM,nomM,apM,true);
+                    Miembro miembro = new Miembro(dniM, nomM, apM, true);
                     miembroD.guardarMiembro(miembro);
-                break;
+                    break;
                 case 4:
                     System.out.println("Ingrese el ID del miembro");
                     int idMiembro = leer.nextInt();
@@ -111,7 +111,7 @@ public class ProyectoFinalG9 {
                     fechaME = LocalDate.of(anioME, mesME, diaME);
                     EquipoMiembro equipoMiembro = new EquipoMiembro(idEquipo, idMiembro, fechaME);
                     equipoMiembroD.guardarEquipoMiembro(equipoMiembro);
-                break;
+                    break;
                 case 5:
                     System.out.println("Ingrese el nombre de la tarea");
                     String nombreT = leer.next();
@@ -136,7 +136,7 @@ public class ProyectoFinalG9 {
                     Tarea tarea = new Tarea(idEqMiT, nombreT, fechaCIE, fechaCRE, 0);
                     //Pendiente 0 - En Proceso 1 - Completada 2
                     tareaD.guardarTarea(tarea);
-                break;
+                    break;
                 case 6:
                     do {
                         System.out.println("Ingrese la ID de la tarea");
@@ -151,20 +151,20 @@ public class ProyectoFinalG9 {
                             case 1:
                                 tareaD.actualizarEstadoTarea(0, idTarea);
                                 veri2 = false;
-                            break;
+                                break;
                             case 2:
                                 tareaD.actualizarEstadoTarea(1, idTarea);
                                 veri2 = false;
-                            break;
+                                break;
                             case 3:
                                 tareaD.actualizarEstadoTarea(2, idTarea);
                                 veri2 = false;
-                            break;
+                                break;
                             default:
                                 System.out.println("Opcion incorrecta");
                         }
                     } while (veri2);
-                break;
+                    break;
                 case 7:
                     System.out.println("Ingrese la ID de la tarea");
                     int idTareaCom = leer.nextInt();
@@ -181,28 +181,37 @@ public class ProyectoFinalG9 {
                     fechaAV = LocalDate.of(anioAV, mesAV, diaAV);
                     Comentario coment = new Comentario(comentario, fechaAV, idTareaCom);
                     comentD.guardarComentario(coment);
-                break;
+                      System.out.println("       ");
+                    break;
                 case 8:
-            List<Proyecto> listP= new ArrayList<>();
-            
-                    listP=proyD.listarProyectos();
-                    
+                    List<Proyecto> listP = new ArrayList<>();
+
+                    listP = proyD.listarProyectos();
+
                     for (Proyecto proyect : listP) {
                         System.out.println(proyect);
                     }
                     System.out.println("Ingrese id de Proyecto para corroborar sus tareas: ");
-                    int id=leer.nextInt();
+                    int id = leer.nextInt();
                     tareaD.areasDeproyecto(id);
-                  
-                    
-                    
-                break;
+
+                    System.out.println("       ");
+
+                    break;
                 case 9:
-                    
-                break;
+                    List<Equipo> listEqui = new ArrayList<>();
+                    listEqui = equipoD.listaEquipo();
+                    for (Equipo equipe : listEqui) {
+                        System.out.println(equipe);
+                    }
+                    System.out.println("Ingrese el iD del Equipo o Grupo");
+                    int idEq = leer.nextInt();
+                    equipoD.infoDeEquipo(idEq);
+                    System.out.println("       ");
+                    break;
                 case 0:
                     veri = false;
-                break;
+                    break;
                 default:
                     System.out.println("Opcion incorrecta");
             }

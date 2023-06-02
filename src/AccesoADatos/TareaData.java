@@ -72,17 +72,6 @@ public class TareaData {
         Proyecto proy = new Proyecto();
         try {
 
-//         String sql = "SELECT P.nombre AS 'Proyecto', T.nombre AS 'Tarea', T.estado "
-//                 + "AS 'Estado', EM.idMiembro AS 'Miembro del Equipo' FROM Proyecto"
-//                 + " AS P JOIN Equipo AS E ON P.idProyecto = E.idProyecto JOIN EquipoMiembros "
-//                 + "AS EM ON E.idEquipo = EM.idEquipo JOIN Tarea AS T ON EM.idMiembroEq = T.idMiembroEq WHERE "
-//                 + "T.estado = 0 OR T.estado=1 AND EM.idMiembro = 1  and P.idProyecto= ?;";
-//            String sql = "SELECT P.nombre AS 'Proyecto', T.nombre AS 'Tarea', T.estado AS 'Estado', EM.idMiembro AS 'Miembro del Equipo'\n"
-//                    + "FROM proyecto AS P\n"
-//                    + "JOIN equipo AS E ON P.idProyecto = E.idProyecto\n"
-//                    + "JOIN equipomiembros AS EM ON E.idEquipo = EM.idEquipo\n"
-//                    + "JOIN tarea AS T ON EM.idMiembroEq = T.idMiembroEq\n"
-//                    + "WHERE T.estado = 1 AND EM.idMiembro = 1;";
             String sql = "SELECT  P.idProyecto AS 'Proyecto', P.nombreP AS 'Proyecto',T.nombreT AS 'Tarea', T.estado AS 'Estado', EM.idMiembro AS 'Miembro del Equipo', E.nombreE AS 'Equipo'\n"
                     + "                                         FROM proyecto AS P \n"
                     + "                                       JOIN equipo AS E ON P.idProyecto = E.idProyecto \n"
@@ -112,13 +101,12 @@ public class TareaData {
                     equipo.setNombre(rs.getString("nombreE"));
                     contador++;
 
-                    System.out.println("Nombre de Proyecto: " + proy.getNombre());
+                    System.out.println("Nombre del Proyecto:       " + proy.getNombre());
+                    System.out.println("Tarea del Proyecto:        " + tarea.getNombre());
+                    System.out.println("Estado de la Tarea:        " + tarea.getEstado());
+                    System.out.println("ID de Miembro del Equipo:  " + eqm.getIdMiembro());
+                    System.out.println("Nombre de Equipo:          " + equipo.getNombre());
 
-                    System.out.println("Tarea del Proyecto:   " + tarea.getNombre());
-                    System.out.println("Estado de la Tarea:   " + tarea.getEstado());
-                    System.out.println("iD de Miembro:          " + eqm.getIdMiembro());
-
-                    System.out.println("Nombre de Equipo:   " + equipo.getNombre());
                 }
             }
 

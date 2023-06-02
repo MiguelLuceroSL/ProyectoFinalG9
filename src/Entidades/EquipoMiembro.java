@@ -5,20 +5,20 @@ import java.time.LocalDate;
 public class EquipoMiembro {
 
     private int idMiembroEq;
-    private int idEquipo;
-    private int idMiembro;
+    private Equipo idEquipo;
+    private Miembro idMiembro;
     private LocalDate fechaIncorporacion;
 
     public EquipoMiembro() {
     }
     
-    public EquipoMiembro(int idEquipo, int idMiembro, LocalDate fechaIncorporacion) {
+    public EquipoMiembro(Equipo idEquipo, Miembro idMiembro, LocalDate fechaIncorporacion) {
         this.idEquipo = idEquipo;
         this.idMiembro = idMiembro;
         this.fechaIncorporacion = fechaIncorporacion;
     }
     
-    public EquipoMiembro(int idMiembroEq, int idEquipo, int idMiembro, LocalDate fechaIncorporacion) {
+    public EquipoMiembro(int idMiembroEq, Equipo idEquipo, Miembro idMiembro, LocalDate fechaIncorporacion) {
         this.idMiembroEq = idMiembroEq;
         this.idEquipo = idEquipo;
         this.idMiembro = idMiembro;
@@ -33,19 +33,19 @@ public class EquipoMiembro {
         this.idMiembroEq = idMiembroEq;
     }
 
-    public int getIdEquipo() {
+    public Equipo getIdEquipo() {
         return idEquipo;
     }
 
-    public void setIdEquipo(int idEquipo) {
+    public void setIdEquipo(Equipo idEquipo) {
         this.idEquipo = idEquipo;
     }
 
-    public int getIdMiembro() {
+    public Miembro getIdMiembro() {
         return idMiembro;
     }
 
-    public void setIdMiembro(int idMiembro) {
+    public void setIdMiembro(Miembro idMiembro) {
         this.idMiembro = idMiembro;
     }
 

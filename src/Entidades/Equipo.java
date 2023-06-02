@@ -3,7 +3,7 @@ package Entidades;
 import java.time.LocalDate;
 
 public class Equipo {
-     private int idProyecto;
+     private Proyecto idProyecto;
         private int idEquipo;
     private String nombre;
  
@@ -13,14 +13,14 @@ public class Equipo {
     public Equipo() {
     }
     
-    public Equipo(int idProyecto, String nombre, LocalDate fechaCreacion, boolean estado) {
+    public Equipo(Proyecto idProyecto, String nombre, LocalDate fechaCreacion, boolean estado) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
     }
 
-    public Equipo(int idProyecto, int idEquipo, String nombre, LocalDate fechaCreacion, boolean estado) {
+    public Equipo(Proyecto idProyecto, int idEquipo, String nombre, LocalDate fechaCreacion, boolean estado) {
         this.idProyecto = idProyecto;
         this.idEquipo = idEquipo;
         this.nombre = nombre;
@@ -28,11 +28,11 @@ public class Equipo {
         this.estado = estado;
     }
 
-    public int getIdProyecto() {
+    public Proyecto getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(int idProyecto) {
+    public void setIdProyecto(Proyecto idProyecto) {
         this.idProyecto = idProyecto;
     }
 

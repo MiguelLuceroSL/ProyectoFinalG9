@@ -7,15 +7,15 @@ public class Comentario {
     private int idCometario;
     private String comentario;
     private LocalDate fechaAvance;
-    private int idTarea;
+    private Tarea idTarea;
 
-    public Comentario(String comentario, LocalDate fechaAvance, int idTarea) {
+    public Comentario(String comentario, LocalDate fechaAvance, Tarea idTarea) {
         this.comentario = comentario;
         this.fechaAvance = fechaAvance;
         this.idTarea = idTarea;
     }
 
-    public Comentario(int idCometario, String comentario, LocalDate fechaAvance, int idTarea) {
+    public Comentario(int idCometario, String comentario, LocalDate fechaAvance, Tarea idTarea) {
         this.idCometario = idCometario;
         this.comentario = comentario;
         this.fechaAvance = fechaAvance;
@@ -49,11 +49,11 @@ public class Comentario {
         this.fechaAvance = fechaAvance;
     }
 
-    public int getIdTarea() {
+    public Tarea getIdTarea() {
         return idTarea;
     }
 
-    public void setIdTarea(int idTarea) {
+    public void setIdTarea(Tarea idTarea) {
         this.idTarea = idTarea;
     }
 

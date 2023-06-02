@@ -19,7 +19,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProyectoFinalG9 {
-
+//LocalDate fechaNac = sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    
+    ///LocalDate al JCalendar
+//LocalDate lc = alumnoActual.getFechaNacimiento();
+//            java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+//            jcfechaNac.setDate(date);
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         Conexion.getConexion();
@@ -97,10 +102,11 @@ public class ProyectoFinalG9 {
                     miembroD.guardarMiembro(miembro);
                     break;
                 case 4:
-                    System.out.println("Ingrese el ID del miembro");
-                    int idMiembro = leer.nextInt();
+                    
                     System.out.println("Ingrese el ID del equipo");
                     int idEquipo = leer.nextInt();
+                    System.out.println("Ingrese el ID del miembro");
+                    int idMiembro = leer.nextInt();
                     System.out.println("Ingrese la fecha de incorporacion");
                     System.out.println("Año: ");
                     int anioME = leer.nextInt();

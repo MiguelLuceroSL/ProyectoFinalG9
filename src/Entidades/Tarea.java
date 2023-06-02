@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Tarea {
 
     private int idTarea;
-    private int idMiembroEq;
+    private EquipoMiembro idMiembroEq;
     private String nombre;
     private LocalDate fechaCreacion;
     private LocalDate fechaCierre;
@@ -22,7 +22,7 @@ public class Tarea {
     public Tarea() {
     }
     
-    public Tarea(int idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
+    public Tarea(EquipoMiembro idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
         this.idMiembroEq = idMiembroEq;
         this.nombre = nombre;
         this.fechaCierre = fechaCierre;
@@ -30,7 +30,7 @@ public class Tarea {
         this.estado = estado;
     }
 
-    public Tarea(int idTarea, int idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
+    public Tarea(int idTarea, EquipoMiembro idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
         this.idTarea = idTarea;
         this.idMiembroEq = idMiembroEq;
         this.nombre = nombre;
@@ -47,11 +47,11 @@ public class Tarea {
         this.idTarea = idTarea;
     }
 
-    public int getIdMiembroEq() {
+    public EquipoMiembro getIdMiembroEq() {
         return idMiembroEq;
     }
 
-    public void setIdMiembroEq(int idMiembroEq) {
+    public void setIdMiembroEq(EquipoMiembro idMiembroEq) {
         this.idMiembroEq = idMiembroEq;
     }
 

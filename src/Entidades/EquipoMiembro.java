@@ -57,4 +57,9 @@ public class EquipoMiembro {
         this.fechaIncorporacion = fechaIncorporacion;
     }
 
+    @Override
+    public String toString() {
+        return "idMiembroEq= " + idMiembroEq + ", idEquipo= " + idEquipo + ", idMiembro= " + idMiembro + ", fechaIncorporacion= " + fechaIncorporacion;
+    }
+
 }

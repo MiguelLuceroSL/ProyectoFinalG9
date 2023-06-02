@@ -22,7 +22,7 @@ public class MiembroData {
 
     public void guardarMiembro(Miembro miembro) {
         try {
-            String sql = "INSERT INTO miembro(dni, apellido, nombre, estado) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO miembro(dni, apellido, nombreM, estado) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, miembro.getDni());
             ps.setString(2, miembro.getApellido());

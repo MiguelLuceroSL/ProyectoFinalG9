@@ -57,4 +57,9 @@ public class Comentario {
         this.idTarea = idTarea;
     }
 
+    @Override
+    public String toString() {
+        return  "idCometario= " + idCometario + ", comentario= " + comentario + ", fechaAvance= " + fechaAvance + ", idTarea= " + idTarea;
+    }
+
 }

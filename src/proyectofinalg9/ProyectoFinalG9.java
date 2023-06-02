@@ -14,6 +14,8 @@ import Entidades.Miembro;
 import Entidades.Proyecto;
 import Entidades.Tarea;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProyectoFinalG9 {
@@ -67,6 +69,7 @@ public class ProyectoFinalG9 {
                     Proyecto proy = new Proyecto(nom, des, fecha, true);
                     proyD.guardarProyecto(proy);
                     break;
+                    
                 case 2:
                     System.out.println("Ingrese el nombre del equipo");
                     String nomE = leer.next();
@@ -180,6 +183,18 @@ public class ProyectoFinalG9 {
                     comentD.guardarComentario(coment);
                 break;
                 case 8:
+            List<Proyecto> listP= new ArrayList<>();
+            
+                    listP=proyD.listarProyectos();
+                    
+                    for (Proyecto proyect : listP) {
+                        System.out.println(proyect);
+                    }
+                    System.out.println("Ingrese id de Proyecto para corroborar sus tareas: ");
+                    int id=leer.nextInt();
+                    tareaD.areasDeproyecto(id);
+                  
+                    
                     
                 break;
                 case 9:

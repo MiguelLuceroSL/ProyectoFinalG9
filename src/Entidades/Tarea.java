@@ -17,7 +17,6 @@ public class Tarea {
     private String nombre;
     private LocalDate fechaCreacion;
     private LocalDate fechaCierre;
-
     private int estado;
 
     public Tarea() {
@@ -86,6 +85,11 @@ public class Tarea {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return  "idTarea= " + idTarea + ", idMiembroEq= " + idMiembroEq + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", fechaCierre= " + fechaCierre + ", estado= " + estado;
     }
 
 }

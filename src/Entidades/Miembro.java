@@ -66,4 +66,9 @@ public class Miembro {
         this.estado = estado;
     }
 
+    @Override
+    public String toString() {
+        return "idMiembro= " + idMiembro + ", dni= " + dni + ", nombre= " + nombre + ", apellido= " + apellido + ", estado= " + estado ;
+    }
+
 }

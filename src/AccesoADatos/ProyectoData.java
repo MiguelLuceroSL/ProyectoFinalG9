@@ -22,7 +22,7 @@ public class ProyectoData {
 
     public void guardarProyecto(Proyecto proyecto) {
         try {
-            String sql = "INSERT INTO proyecto(nombre, descripcion, fechaInicio, estado) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO proyecto(nombreP, descripcion, fechaInicio, estado) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, proyecto.getNombre());
             ps.setString(2, proyecto.getDescripcion());
@@ -51,7 +51,7 @@ public class ProyectoData {
             while (rs.next()) {            
                 Proyecto proy = new Proyecto();
                 proy.setIdProyecto(rs.getInt("idProyecto"));
-                proy.setNombre(rs.getString("nombre"));
+                proy.setNombre(rs.getString("nombreP"));
                 proy.setDescripcion(rs.getString("descripcion"));
                 proy.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
                 proy.setEstado(rs.getBoolean("estado"));

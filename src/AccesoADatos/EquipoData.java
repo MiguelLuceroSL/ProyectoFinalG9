@@ -22,7 +22,7 @@ public class EquipoData {
 
     public void guardarEquipo(Equipo equipo) {
         try{
-            String sql = "INSERT INTO equipo(idProyecto, nombre, fechaCreacion, estado) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO equipo(idProyecto, nombreE, fechaCreacion, estado) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, equipo.getIdProyecto());
             ps.setString(2, equipo.getNombre());

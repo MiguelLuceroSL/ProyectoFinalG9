@@ -67,5 +67,10 @@ public class Equipo {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return  "idProyecto= " + idProyecto + ", idEquipo= " + idEquipo + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", estado= " + estado;
+    }
     
 }

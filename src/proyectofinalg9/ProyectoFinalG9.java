@@ -35,7 +35,6 @@ public class ProyectoFinalG9 {
         LocalDate fechaME = LocalDate.parse(fechaDefault);
         LocalDate fechaCRE = LocalDate.parse(fechaDefault);
         LocalDate fechaCIE = LocalDate.parse(fechaDefault);
-        LocalDate fechaCI = LocalDate.parse(fechaDefault);
         LocalDate fechaAV = LocalDate.parse(fechaDefault);
         ProyectoData proyD = new ProyectoData();
         EquipoData equipoD = new EquipoData();

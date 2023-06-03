@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 public class ProyectoFinalG9 {
 //LocalDate fechaNac = sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    
+
     ///LocalDate al JCalendar
 //LocalDate lc = alumnoActual.getFechaNacimiento();
 //            java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -35,6 +35,7 @@ public class ProyectoFinalG9 {
         LocalDate fechaME = LocalDate.parse(fechaDefault);
         LocalDate fechaCRE = LocalDate.parse(fechaDefault);
         LocalDate fechaCIE = LocalDate.parse(fechaDefault);
+        LocalDate fechaCI = LocalDate.parse(fechaDefault);
         LocalDate fechaAV = LocalDate.parse(fechaDefault);
         ProyectoData proyD = new ProyectoData();
         EquipoData equipoD = new EquipoData();
@@ -142,9 +143,15 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaCIE = leer.nextInt();
                     fechaCIE = LocalDate.of(anioCIE, mesCIE, diaCIE);
-                    Tarea tarea = new Tarea(equipoMiembroAux, nombreT, fechaCIE, fechaCRE, 0);
-                    //Pendiente 0 - En Proceso 1 - Completada 2
-                    tareaD.guardarTarea(tarea);
+                    int comparacion = fechaCIE.compareTo(fechaCRE);
+                    if (comparacion < 0 || comparacion == 0) {
+                        System.out.println("Fecha mal ingresada, supera la fecha de cierre");
+                        break;
+                    } else {
+                        Tarea tarea = new Tarea(equipoMiembroAux, nombreT, fechaCIE, fechaCRE, 0);
+                        //Pendiente 0 - En Proceso 1 - Completada 2
+                        tareaD.guardarTarea(tarea);
+                    }
                     break;
                 case 6:
                     do {
@@ -181,7 +188,6 @@ public class ProyectoFinalG9 {
                     System.out.println("Ingrese el comentario");
                     String comentario = leer.next();
                     System.out.println("Ingrese la fecha del avance");
-                    System.out.println("Ingrese la fecha de cierre");
                     System.out.println("Año: ");
                     int anioAV = leer.nextInt();
                     System.out.println("Mes: ");
@@ -191,7 +197,6 @@ public class ProyectoFinalG9 {
                     fechaAV = LocalDate.of(anioAV, mesAV, diaAV);
                     Comentario coment = new Comentario(comentario, fechaAV, tarrea);
                     comentD.guardarComentario(coment);
-                      System.out.println("       ");
                     break;
                 case 8:
                     List<Proyecto> listP = new ArrayList<>();
@@ -204,9 +209,6 @@ public class ProyectoFinalG9 {
                     System.out.println("Ingrese id de Proyecto para corroborar sus tareas: ");
                     int id = leer.nextInt();
                     tareaD.areasDeproyecto(id);
-
-                    System.out.println("       ");
-
                     break;
                 case 9:
                     List<Equipo> listEqui = new ArrayList<>();
@@ -226,6 +228,6 @@ public class ProyectoFinalG9 {
                     System.out.println("Opcion incorrecta");
             }
         } while (veri);
-
+        System.out.println("");
     }
 }

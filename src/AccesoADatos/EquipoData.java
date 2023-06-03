@@ -78,6 +78,7 @@ public class EquipoData {
                 System.out.println("DNI del Miembro:          " + miembro.getDni());
                 System.out.println("Tareas asignadas:         " + tarea.getNombre());
                 System.out.println("Fecha de Incorporación:   " + eqm.getFechaIncorporacion());
+                System.out.println("");
             }
             rs.close();
             ps.close();
@@ -88,13 +89,16 @@ public class EquipoData {
 
     public List<Equipo> listaEquipo() {
         List<Equipo> listaEq = new ArrayList<>();
+        ProyectoData proyD = new ProyectoData();
+        Proyecto proy;
         try {
             String sql = "SELECT * FROM equipo";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Equipo equipo = new Equipo();
-                equipo.getProyectoId().setIdProyecto(rs.getInt("idProyecto"));
+                proy = proyD.buscarProyectoPorId(rs.getInt("idProyecto"));
+                equipo.setProyectoId(proy);
                 equipo.setIdEquipo(rs.getInt("idEquipo"));
                 equipo.setNombre(rs.getString("nombreE"));
                 equipo.setFechaCreacion(rs.getDate("fechaCreacion").toLocalDate());

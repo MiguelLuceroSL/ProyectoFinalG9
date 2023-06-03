@@ -2,6 +2,7 @@ package AccesoADatos;
 
 import Entidades.Equipo;
 import Entidades.EquipoMiembro;
+import Entidades.Miembro;
 import Entidades.Proyecto;
 import Entidades.Tarea;
 import java.sql.Connection;
@@ -69,6 +70,9 @@ public class TareaData {
         EquipoMiembro eqm;
         Tarea tarea;
         Proyecto proy;
+        MiembroData miembroD = new MiembroData();
+        Miembro miembro;
+        String estado = "";
         try {
             String sql = "SELECT  P.idProyecto AS 'Proyecto', P.nombreP AS 'Proyecto',T.nombreT AS 'Tarea', T.estado AS 'Estado', EM.idMiembro AS 'Miembro del Equipo', E.nombreE AS 'Equipo'\n"
                     + "                                         FROM proyecto AS P \n"
@@ -87,14 +91,29 @@ public class TareaData {
                     tarea.setNombre(rs.getString("nombreT"));
                     tarea.setEstado(rs.getInt("estado"));
                     eqm = new EquipoMiembro();
-                    eqm.getMiembroId().setIdMiembro(rs.getInt("idMiembro"));
+                    miembro = miembroD.buscarMiembroPorId(rs.getInt("idMiembro"));
+                    eqm.setMiembroId(miembro);
                     equipo = new Equipo();
                     equipo.setNombre(rs.getString("nombreE"));
                     System.out.println("Nombre del Proyecto:       " + proy.getNombre());
                     System.out.println("Tarea del Proyecto:        " + tarea.getNombre());
-                    System.out.println("Estado de la Tarea:        " + tarea.getEstado());
+                    switch (tarea.getEstado()) {
+                        case 0:
+                            estado = "Pendiente";
+                        break;
+                        case 1:
+                            estado = "En Proceso";
+                        break;
+                        case 2:
+                            estado = "Completada";
+                        break;
+                        default:
+                            throw new AssertionError();
+                    }
+                    System.out.println("Estado de la Tarea:        " + estado);
                     System.out.println("ID de Miembro del Equipo:  " + eqm.getMiembroId().getIdMiembro());
                     System.out.println("Nombre de Equipo:          " + equipo.getNombre());
+                    System.out.println("");
                 }
             }
             rs.close();

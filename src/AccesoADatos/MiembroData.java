@@ -1,6 +1,8 @@
 package AccesoADatos;
 
+import Entidades.Equipo;
 import Entidades.Miembro;
+import Entidades.Proyecto;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -40,5 +42,28 @@ public class MiembroData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Miembro" + ex.getMessage());
         }
+    }
+
+    public Miembro buscarMiembroPorId(int idm) {
+        Miembro miembro = new Miembro();
+        String sql = "SELECT * FROM miembro WHERE idMiembro=?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idm);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                miembro.setApellido(rs.getString("apellido"));
+                miembro.setDni(rs.getInt("dni"));
+                miembro.setEstado(rs.getBoolean("estado"));
+                miembro.setIdMiembro(rs.getInt("idMiembro"));
+                miembro.setNombre(rs.getString("nombreM"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el miembro");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Miembro" + ex.getMessage());
+        }
+        return miembro;
     }
 }

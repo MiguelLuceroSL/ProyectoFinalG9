@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Tarea {
 
     private int idTarea;
-    private EquipoMiembro idMiembroEq;
+    private EquipoMiembro miembroEqId;
     private String nombre;
     private LocalDate fechaCreacion;
     private LocalDate fechaCierre;
@@ -23,7 +23,7 @@ public class Tarea {
     }
     
     public Tarea(EquipoMiembro idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
-        this.idMiembroEq = idMiembroEq;
+        this.miembroEqId = idMiembroEq;
         this.nombre = nombre;
         this.fechaCierre = fechaCierre;
         this.fechaCreacion = fechaCreacion;
@@ -32,7 +32,7 @@ public class Tarea {
 
     public Tarea(int idTarea, EquipoMiembro idMiembroEq, String nombre, LocalDate fechaCierre, LocalDate fechaCreacion, int estado) {
         this.idTarea = idTarea;
-        this.idMiembroEq = idMiembroEq;
+        this.miembroEqId = idMiembroEq;
         this.nombre = nombre;
         this.fechaCierre = fechaCierre;
         this.fechaCreacion = fechaCreacion;
@@ -47,12 +47,12 @@ public class Tarea {
         this.idTarea = idTarea;
     }
 
-    public EquipoMiembro getIdMiembroEq() {
-        return idMiembroEq;
+    public EquipoMiembro getMiembroEqId() {
+        return miembroEqId;
     }
 
-    public void setIdMiembroEq(EquipoMiembro idMiembroEq) {
-        this.idMiembroEq = idMiembroEq;
+    public void setMiembroEqId(EquipoMiembro miembroEqId) {
+        this.miembroEqId = miembroEqId;
     }
 
     public String getNombre() {
@@ -63,20 +63,20 @@ public class Tarea {
         this.nombre = nombre;
     }
 
-    public LocalDate getFechaCierre() {
-        return fechaCierre;
-    }
-
-    public void setFechaCierre(LocalDate fechaCierre) {
-        this.fechaCierre = fechaCierre;
-    }
-
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public LocalDate getFechaCierre() {
+        return fechaCierre;
+    }
+
+    public void setFechaCierre(LocalDate fechaCierre) {
+        this.fechaCierre = fechaCierre;
     }
 
     public int getEstado() {
@@ -87,9 +87,11 @@ public class Tarea {
         this.estado = estado;
     }
 
+    
+
     @Override
     public String toString() {
-        return  "idTarea= " + idTarea + ", idMiembroEq= " + idMiembroEq + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", fechaCierre= " + fechaCierre + ", estado= " + estado;
+        return  "idTarea= " + idTarea + ", idMiembroEq= " + miembroEqId.getIdMiembroEq() + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", fechaCierre= " + fechaCierre + ", estado= " + estado;
     }
 
 }

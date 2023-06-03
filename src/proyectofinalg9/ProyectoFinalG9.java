@@ -88,7 +88,8 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaE = leer.nextInt();
                     fechaE = LocalDate.of(anioE, mesE, diaE);
-                    Equipo equipo = new Equipo(idE, nomE, fechaE, true);
+                    Proyecto proy1 = proyD.buscarProyectoPorId(idE);
+                    Equipo equipo = new Equipo(proy1, nomE, fechaE, true);
                     equipoD.guardarEquipo(equipo);
                     break;
                 case 3:
@@ -102,7 +103,6 @@ public class ProyectoFinalG9 {
                     miembroD.guardarMiembro(miembro);
                     break;
                 case 4:
-                    
                     System.out.println("Ingrese el ID del equipo");
                     int idEquipo = leer.nextInt();
                     System.out.println("Ingrese el ID del miembro");
@@ -115,7 +115,9 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaME = leer.nextInt();
                     fechaME = LocalDate.of(anioME, mesME, diaME);
-                    EquipoMiembro equipoMiembro = new EquipoMiembro(idEquipo, idMiembro, fechaME);
+                    Equipo equipoAux = equipoD.buscarEquipoPorId(idEquipo);
+                    Miembro miembroAux = miembroD.buscarMiembroPorId(idMiembro);
+                    EquipoMiembro equipoMiembro = new EquipoMiembro(equipoAux, miembroAux, fechaME);
                     equipoMiembroD.guardarEquipoMiembro(equipoMiembro);
                     break;
                 case 5:
@@ -123,6 +125,7 @@ public class ProyectoFinalG9 {
                     String nombreT = leer.next();
                     System.out.println("Ingrese el ID EquipoMiembro");
                     int idEqMiT = leer.nextInt();
+                    EquipoMiembro equipoMiembroAux = equipoMiembroD.buscarEquipoMiembroPorId(idEqMiT);
                     System.out.println("Ingrese la fecha de creacion");
                     System.out.println("Año: ");
                     int anioCRE = leer.nextInt();
@@ -139,7 +142,7 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaCIE = leer.nextInt();
                     fechaCIE = LocalDate.of(anioCIE, mesCIE, diaCIE);
-                    Tarea tarea = new Tarea(idEqMiT, nombreT, fechaCIE, fechaCRE, 0);
+                    Tarea tarea = new Tarea(equipoMiembroAux, nombreT, fechaCIE, fechaCRE, 0);
                     //Pendiente 0 - En Proceso 1 - Completada 2
                     tareaD.guardarTarea(tarea);
                     break;
@@ -174,6 +177,7 @@ public class ProyectoFinalG9 {
                 case 7:
                     System.out.println("Ingrese la ID de la tarea");
                     int idTareaCom = leer.nextInt();
+                    Tarea tarrea = tareaD.buscarTareaPorId(idTareaCom);
                     System.out.println("Ingrese el comentario");
                     String comentario = leer.next();
                     System.out.println("Ingrese la fecha del avance");
@@ -185,7 +189,7 @@ public class ProyectoFinalG9 {
                     System.out.println("Dia: ");
                     int diaAV = leer.nextInt();
                     fechaAV = LocalDate.of(anioAV, mesAV, diaAV);
-                    Comentario coment = new Comentario(comentario, fechaAV, idTareaCom);
+                    Comentario coment = new Comentario(comentario, fechaAV, tarrea);
                     comentD.guardarComentario(coment);
                       System.out.println("       ");
                     break;

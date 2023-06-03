@@ -3,37 +3,37 @@ package Entidades;
 import java.time.LocalDate;
 
 public class Equipo {
-     private Proyecto idProyecto;
-        private int idEquipo;
+
+    private Proyecto proyectoId;
+    private int idEquipo;
     private String nombre;
- 
     private LocalDate fechaCreacion;
     private boolean estado;
 
     public Equipo() {
     }
-    
-    public Equipo(Proyecto idProyecto, String nombre, LocalDate fechaCreacion, boolean estado) {
-        this.idProyecto = idProyecto;
+
+    public Equipo(Proyecto proyectoId, String nombre, LocalDate fechaCreacion, boolean estado) {
+        this.proyectoId = proyectoId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
     }
 
-    public Equipo(Proyecto idProyecto, int idEquipo, String nombre, LocalDate fechaCreacion, boolean estado) {
-        this.idProyecto = idProyecto;
+    public Equipo(Proyecto proyectoId, int idEquipo, String nombre, LocalDate fechaCreacion, boolean estado) {
+        this.proyectoId = proyectoId;
         this.idEquipo = idEquipo;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
     }
 
-    public Proyecto getIdProyecto() {
-        return idProyecto;
+    public Proyecto getProyectoId() {
+        return proyectoId;
     }
 
-    public void setIdProyecto(Proyecto idProyecto) {
-        this.idProyecto = idProyecto;
+    public void setProyectoId(Proyecto proyectoId) {
+        this.proyectoId = proyectoId;
     }
 
     public int getIdEquipo() {
@@ -70,7 +70,7 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return  "idProyecto= " + idProyecto + ", idEquipo= " + idEquipo + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", estado= " + estado;
+        return "idProyecto= " + proyectoId.getIdProyecto() + ", idEquipo= " + idEquipo + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", estado= " + estado;
     }
-    
+
 }

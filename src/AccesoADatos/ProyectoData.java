@@ -41,14 +41,37 @@ public class ProyectoData {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Proyecto" + ex.getMessage());
         }
     }
-    
-    public List<Proyecto> listarProyectos(){
+
+    public Proyecto buscarProyectoPorId(int idp) {
+        Proyecto proyecto = new Proyecto();
+        String sql = "SELECT * FROM proyecto WHERE idProyecto=?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idp);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                proyecto.setIdProyecto(rs.getInt("idProyecto"));
+                proyecto.setNombre(rs.getString("nombreP"));
+                proyecto.setDescripcion(rs.getString("descripcion"));
+                proyecto.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
+                proyecto.setEstado(rs.getBoolean("estado"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el proyecto");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Proyecto" + ex.getMessage());
+        }
+        return proyecto;
+    }
+
+    public List<Proyecto> listarProyectos() {
         List<Proyecto> listaP = new ArrayList<>();
         try {
             String sql = "SELECT * FROM proyecto";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {            
+            while (rs.next()) {
                 Proyecto proy = new Proyecto();
                 proy.setIdProyecto(rs.getInt("idProyecto"));
                 proy.setNombre(rs.getString("nombreP"));
@@ -59,7 +82,7 @@ public class ProyectoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
         return listaP;
     }

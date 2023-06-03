@@ -5,26 +5,26 @@ import java.time.LocalDate;
 public class EquipoMiembro {
 
     private int idMiembroEq;
-    private Equipo idEquipo;
-    private Miembro idMiembro;
+    private Equipo equipoId;
+    private Miembro miembroId;
     private LocalDate fechaIncorporacion;
 
     public EquipoMiembro() {
     }
     
     public EquipoMiembro(Equipo idEquipo, Miembro idMiembro, LocalDate fechaIncorporacion) {
-        this.idEquipo = idEquipo;
-        this.idMiembro = idMiembro;
+        this.equipoId = idEquipo;
+        this.miembroId = idMiembro;
         this.fechaIncorporacion = fechaIncorporacion;
     }
     
     public EquipoMiembro(int idMiembroEq, Equipo idEquipo, Miembro idMiembro, LocalDate fechaIncorporacion) {
         this.idMiembroEq = idMiembroEq;
-        this.idEquipo = idEquipo;
-        this.idMiembro = idMiembro;
+        this.equipoId = idEquipo;
+        this.miembroId = idMiembro;
         this.fechaIncorporacion = fechaIncorporacion;
     }
-    
+
     public int getIdMiembroEq() {
         return idMiembroEq;
     }
@@ -33,20 +33,20 @@ public class EquipoMiembro {
         this.idMiembroEq = idMiembroEq;
     }
 
-    public Equipo getIdEquipo() {
-        return idEquipo;
+    public Equipo getEquipoId() {
+        return equipoId;
     }
 
-    public void setIdEquipo(Equipo idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setEquipoId(Equipo equipoId) {
+        this.equipoId = equipoId;
     }
 
-    public Miembro getIdMiembro() {
-        return idMiembro;
+    public Miembro getMiembroId() {
+        return miembroId;
     }
 
-    public void setIdMiembro(Miembro idMiembro) {
-        this.idMiembro = idMiembro;
+    public void setMiembroId(Miembro miembroId) {
+        this.miembroId = miembroId;
     }
 
     public LocalDate getFechaIncorporacion() {
@@ -56,10 +56,12 @@ public class EquipoMiembro {
     public void setFechaIncorporacion(LocalDate fechaIncorporacion) {
         this.fechaIncorporacion = fechaIncorporacion;
     }
+    
+    
 
     @Override
     public String toString() {
-        return "idMiembroEq= " + idMiembroEq + ", idEquipo= " + idEquipo + ", idMiembro= " + idMiembro + ", fechaIncorporacion= " + fechaIncorporacion;
+        return "idMiembroEq= " + idMiembroEq + ", idEquipo= " + equipoId.getIdEquipo() + ", idMiembro= " + miembroId.getIdMiembro() + ", fechaIncorporacion= " + fechaIncorporacion;
     }
 
 }

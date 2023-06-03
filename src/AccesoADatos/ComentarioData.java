@@ -24,7 +24,7 @@ public class ComentarioData {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, comentario.getComentario());
             ps.setDate(2, Date.valueOf(comentario.getFechaAvance()));
-            ps.setInt(3, comentario.getIdTarea());
+            ps.setInt(3, comentario.getTareaId().getIdTarea());
             if (ps.executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "Comentario cargado exitosamente");
             }

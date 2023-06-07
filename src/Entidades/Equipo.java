@@ -70,7 +70,7 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "idProyecto= " + proyectoId.getIdProyecto() + ", idEquipo= " + idEquipo + ", nombre= " + nombre + ", fechaCreacion= " + fechaCreacion + ", estado= " + estado;
+        return "ID Equipo: " + idEquipo + "/ Nombre: " + nombre + "/ Fecha de Creacion: " + fechaCreacion + "/ Estado: " + estado;
     }
 
 }

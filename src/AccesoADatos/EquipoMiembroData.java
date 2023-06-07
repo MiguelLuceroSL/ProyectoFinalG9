@@ -71,4 +71,51 @@ public class EquipoMiembroData {
         
         return equipoMiembro;
     }
+    
+    public EquipoMiembro buscarEquipoMiembroPorIdMiembro(int idM) {
+        EquipoMiembro equipoMiembro = new EquipoMiembro();
+        Equipo equipo;
+        EquipoData equipoD = new EquipoData();
+        Miembro miembro;
+        MiembroData miembroD = new MiembroData();
+        String sql = "SELECT * FROM equipomiembros WHERE idMiembro=?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idM);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                equipo = equipoD.buscarEquipoPorId(rs.getInt("idEquipo"));
+                miembro = miembroD.buscarMiembroPorId(idM);
+                equipoMiembro.setEquipoId(equipo);
+                equipoMiembro.setMiembroId(miembro);
+                equipoMiembro.setIdMiembroEq(rs.getInt("idMiembroEq"));
+                equipoMiembro.setFechaIncorporacion(rs.getDate("fechaIncorporacion").toLocalDate());
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el equipo-miembro");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Equipo-Miembro" + ex.getMessage());
+        }
+        
+        return equipoMiembro;
+    }
+    
+    public void borrarMiembroEq(int id){
+        TareaData tareaD = new TareaData();
+        try{
+            tareaD.borrarTarea(id);
+            String sql = "DELETE FROM equipomiembros WHERE idMiembroEq = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+            if (exito==1) {
+                JOptionPane.showMessageDialog(null, "MiembroEquipo eliminado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el MiembroEquipo.");
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+        }
+    }
 }

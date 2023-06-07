@@ -86,4 +86,45 @@ public class ProyectoData {
         }
         return listaP;
     }
+    
+    public void activarProyecto(int id){
+        try {
+            String sql = "UPDATE proyecto SET estado = 1 WHERE idProyecto = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, false);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se activó el proyecto.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Proyecto "+e.getMessage());
+        }
+    }
+    
+    public void desactivarProyecto(int id){
+        try {
+            String sql = "UPDATE proyecto SET estado = 0 WHERE idProyecto = ? AND estado = ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, true);
+            int fila = ps.executeUpdate();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se desactivó el proyecto.");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto "+e.getMessage());
+        }
+    }
+    
+    public void activarDesactivar(int id){
+        Proyecto proyecto = buscarProyectoPorId(id);
+        if (proyecto.isEstado()) {
+            desactivarProyecto(id);
+        } else {
+            activarProyecto(id);
+        }
+    }
 }

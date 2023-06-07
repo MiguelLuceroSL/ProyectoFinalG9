@@ -19,16 +19,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProyectoFinalG9 {
-//LocalDate fechaNac = sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-    ///LocalDate al JCalendar
-//LocalDate lc = alumnoActual.getFechaNacimiento();
-//            java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
-//            jcfechaNac.setDate(date);
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         Conexion.getConexion();
-        int op = 0, op2 = 0;
+        int op = 0, op2 = 0, op3 = 0;
         String fechaDefault = "1900-01-01";
         LocalDate fecha = LocalDate.parse(fechaDefault);
         LocalDate fechaE = LocalDate.parse(fechaDefault);
@@ -42,18 +37,20 @@ public class ProyectoFinalG9 {
         TareaData tareaD = new TareaData();
         ComentarioData comentD = new ComentarioData();
         EquipoMiembroData equipoMiembroD = new EquipoMiembroData();
-        boolean veri = true, veri2 = true;
+        boolean veri = true, veri2 = true, veri3 = true;
         do {
             System.out.println("CREACION DE PROYECTOS");
-            System.out.println("1- Crear un proyecto");
-            System.out.println("2- Crear un equipo");
-            System.out.println("3- Crear un miembro");
-            System.out.println("4- Añadir miembro a un equipo");
-            System.out.println("5- Asignar una tarea a un miembro de un equipo");
-            System.out.println("6- Actualizar estado de las tareas");
+            System.out.println("1- Crear un proyecto"); //P
+            System.out.println("2- Crear un equipo"); //E
+            System.out.println("3- Crear un miembro"); //M
+            System.out.println("4- Añadir miembro a un equipo"); //M
+            System.out.println("5- Asignar una tarea a un miembro de un equipo");//T
+            System.out.println("6- Actualizar estado de las tareas");//T
             System.out.println("7- Registrar avances en las tareas");
             System.out.println("8- Consultar proyectos y tareas");
-            System.out.println("9- Consultar información del equipo");
+            System.out.println("9- Consultar información del equipo"); //E
+            System.out.println("10-Activar/Desactivar");
+            System.out.println("11-Eliminar Miembro a un MiembroEquipo");
             System.out.println("0- Salir");
             System.out.println("Ingrese una opcion");
             op = leer.nextInt();
@@ -218,7 +215,43 @@ public class ProyectoFinalG9 {
                     System.out.println("Ingrese el iD del Equipo o Grupo");
                     int idEq = leer.nextInt();
                     equipoD.infoDeEquipo(idEq);
-                    System.out.println("       ");
+                    System.out.println("");
+                    break;
+                case 10:
+                    do {
+                        System.out.println("1-Activar o Desactivar un Proyecto");
+                        System.out.println("2-Activar o Desactivar un Equipo");
+                        System.out.println("3-Activar o Desactivar un Miembro");
+                        System.out.println("ingrese una opcion");
+                        op3 = leer.nextInt();
+                        switch (op3) {
+                            case 1:
+                                System.out.println("Ingrese la ID del proyecto");
+                                int idProy = leer.nextInt();
+                                proyD.activarDesactivar(idProy);
+                                veri3 = false;
+                                break;
+                            case 2:
+                                System.out.println("Ingrese la ID del Equipo");
+                                int idEquipoo = leer.nextInt();
+                                equipoD.activarDesactivar(idEquipoo);
+                                veri3 = false;
+                                break;
+                            case 3:
+                                System.out.println("Ingrese la ID del Miembro");
+                                int idMiembroo = leer.nextInt();
+                                miembroD.activarDesactivar(idMiembroo);
+                                veri3 = false;
+                                break;
+                            default:
+                                System.out.println("Opcion incorrecta");
+                        }
+                    } while (veri3);
+                    break;
+                case 11:
+                    System.out.println("Ingrese la ID del MiembroEquipo");
+                    int idMiEqq = leer.nextInt();
+                    equipoMiembroD.borrarMiembroEq(idMiEqq);
                     break;
                 case 0:
                     veri = false;

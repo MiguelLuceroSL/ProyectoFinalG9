@@ -1,5 +1,6 @@
 package AccesoADatos;
 
+import Entidades.EquipoMiembro;
 import Entidades.Miembro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,5 +63,50 @@ public class MiembroData {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Miembro" + ex.getMessage());
         }
         return miembro;
+    }
+    
+    public void activarMiembro(int id){
+        try {
+            String sql = "UPDATE miembro SET estado = 1 WHERE idMiembro = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, false);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se activó el miembro.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Miembro "+e.getMessage());
+        }
+    }
+    
+    public void desactivarMiembro(int id){
+        EquipoMiembroData eqMiD = new EquipoMiembroData();
+        EquipoMiembro eqMi;
+        try {
+            String sql = "UPDATE miembro SET estado = 0 WHERE idMiembro = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, true);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                eqMi = eqMiD.buscarEquipoMiembroPorIdMiembro(id);
+                eqMiD.borrarMiembroEq(eqMi.getIdMiembroEq());
+                JOptionPane.showMessageDialog(null, " Se desactivó el miembro.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Miembro "+e.getMessage());
+        }
+    }
+    
+    public void activarDesactivar(int id){
+        Miembro miembro = buscarMiembroPorId(id);
+        if (miembro.isEstado()) {
+            desactivarMiembro(id);
+        } else {
+            activarMiembro(id);
+        }
     }
 }

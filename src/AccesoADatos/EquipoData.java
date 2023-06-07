@@ -138,4 +138,44 @@ public class EquipoData {
         return equipo;
     }
 
+    public void activarEquipo(int id){
+        try {
+            String sql = "UPDATE equipo SET estado = 1 WHERE idEquipo = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, false);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se activó el equipo.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Equipo "+e.getMessage());
+        }
+    }
+    
+    public void desactivarEquipo(int id){
+        try {
+            String sql = "UPDATE equipo SET estado = 0 WHERE idEquipo = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, true);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se desactivó el equipo.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Equipo "+e.getMessage());
+        }
+    }
+    
+    public void activarDesactivar(int id){
+        Equipo equipo = buscarEquipoPorId(id);
+        if (equipo.isEstado()) {
+            desactivarEquipo(id);
+        } else {
+            activarEquipo(id);
+        }
+    }
 }

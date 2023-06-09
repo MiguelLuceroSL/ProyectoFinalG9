@@ -118,7 +118,25 @@ public class ProyectoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto "+e.getMessage());
         }
     }
-    
+    public  void borrarProyecto(int id) {
+        String sql="DELETE FROM `proyecto` WHERE idProyecto= ?";
+           try {
+         
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            
+            int fila = ps.executeUpdate();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se BORRÓ  de la lista el proyecto.");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto "+e.getMessage());
+        }
+
+
+
+    }
     public void activarDesactivar(int id){
         Proyecto proyecto = buscarProyectoPorId(id);
         if (proyecto.isEstado()) {

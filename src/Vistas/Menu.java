@@ -34,6 +34,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuProyecto = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuEquipo = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
 
@@ -73,6 +74,15 @@ public class Menu extends javax.swing.JFrame {
                 jMenu4ActionPerformed(evt);
             }
         });
+
+        jMenuEquipo.setText("Equipo");
+        jMenuEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEquipoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuEquipo);
+
         jMenuBar1.add(jMenu4);
 
         jMenu2.setText("Salir");
@@ -129,6 +139,15 @@ public class Menu extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jMenu4ActionPerformed
 
+    private void jMenuEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEquipoActionPerformed
+  escritorio.removeAll();
+        escritorio.repaint();
+          ViewEquipo eq= new ViewEquipo();
+        eq.setVisible(true);
+        escritorio.add(eq);
+        escritorio.moveToFront(eq);
+    }//GEN-LAST:event_jMenuEquipoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -170,6 +189,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuEquipo;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuProyecto;
     // End of variables declaration//GEN-END:variables

@@ -55,7 +55,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         tabla = new DefaultTableModel();
         crearTabla();
         tablaB = new DefaultTableModel();
-        crearTablaB();
+       // crearTablaB();
     }
 
     @SuppressWarnings("unchecked")
@@ -81,10 +81,10 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         btnDesactivar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListaIntegranteEq = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         btnIntegrantes = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtListaIntegrante = new javax.swing.JTextArea();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("EQUIPO");
@@ -158,19 +158,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Listado de Equipos Activos/No Activos");
 
-        jListaIntegranteEq.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Apellido", "DNI", "Tareas Asignadas", "Fecha de Creación", "Fecha de Incorporación"
-            }
-        ));
-        jScrollPane2.setViewportView(jListaIntegranteEq);
-
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Integrantes del Equipo");
 
@@ -180,6 +167,10 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 btnIntegrantesActionPerformed(evt);
             }
         });
+
+        txtListaIntegrante.setColumns(20);
+        txtListaIntegrante.setRows(5);
+        jScrollPane3.setViewportView(txtListaIntegrante);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,7 +183,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnGuardar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,47 +195,49 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDesactivar))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
-                                            .addGap(103, 103, 103)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel3)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtIdPro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel2)
-                                                    .addGap(97, 97, 97)
-                                                    .addComponent(txtIdEq, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(83, 83, 83)
-                                            .addComponent(jButton6))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jEstado)))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(44, 44, 44)
-                                    .addComponent(btnIntegrantes)))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addGap(103, 103, 103)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtIdPro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addGap(97, 97, 97)
+                                            .addComponent(txtIdEq, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(83, 83, 83)
+                                    .addComponent(jButton6))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jEstado)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnIntegrantes)
+                                .addGap(32, 32, 32))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jLabel6)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(184, 184, 184))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtIdEq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,9 +247,9 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,12 +267,15 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIntegrantes)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(btnIntegrantes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -339,45 +335,47 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
     private void btnIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntegrantesActionPerformed
         try {
-            List<Equipo> datoA = new ArrayList<>();
-            List<EquipoMiembro> datoB = new ArrayList<>();
-            List<Tarea> datoC;
-
-//  List<EquipoData> datoeq;
+          
             int idBB = 0;
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
                 String idEquipo = (String) tabla.getValueAt(filaSelec, 1);
                 int id = Integer.parseInt(idEquipo);
+                equipoData.informeDeEquipo(id);
+                List<String> resultados = equipoData.informeDeEquipo(id);
+                   if (!resultados.isEmpty()) {
+for (String resultado : resultados) {
+    resultado = resultado.substring(0, resultado.length() - 1);
+  
+         txtListaIntegrante.setText(resultado);
+    }
+}
+                   else{
+  
+    txtListaIntegrante.setText("Aun no hay Miembros en este Equipo");
+     }
 
-                String[] fila = new String[5];
-//
-                for (int i = 0; i < 1; i++) {
-                    fila[0] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getNombre();
-                    fila[1] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getApellido();
-                    fila[2] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getDni() + "";
 
-                    int idT = tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorIdMiembro(id).getIdMiembroEq()).getIdTarea();
-
-                   
-                    if (tData.buscarTareaPorId(idT).getNombre().concat(" - " + tData.buscarTareaPorId(idT + 1).getNombre())!=null) {
-                         fila[3]=tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorIdMiembro(idT).getIdMiembroEq()).getNombre();
-                    }else{
-                         fila[3] = tData.buscarTareaPorId(idT).getNombre().concat(" - " + tData.buscarTareaPorId(idT + 1).getNombre());
-                    }
-                    // fila[3]=tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorIdMiembro(idT).getIdMiembroEq()).getNombre() ;
-                    fila[4] = eqMdata.buscarEquipoMiembroPorId(id).getFechaIncorporacion() + "";
-
-                    tablaB.addRow(fila);
-                }
             }
-            jListaIntegranteEq.setModel(tablaB);
+  //              String[] fila = new String[5];
+//
+//
+//                for (int i = 0; i < 1; i++) {
+//                    fila[0] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getNombre();
+//                    fila[1] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getApellido();
+//                    fila[2] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getDni() + "";
+//
+//                    int idT = tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorIdMiembro(id).getIdMiembroEq()).getMiembroEqId().getIdMiembroEq();
+//                   fila[3] = tData.buscarTareaPorIdMiEq(idT).getNombre().concat( tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorId(idT).getIdMiembroEq()).getNombre());
+//
+//                    fila[4] = eqMdata.buscarEquipoMiembroPorId(id).getFechaIncorporacion() + "";
+//
+//                    tablaB.addRow(fila);
+//                }
+//
+//            }
+//            jListaIntegranteEq.setModel(tablaB);
 
-//          System.out.println("Nombre del Miembro:       " + miembro.getNombre());
-//                System.out.println("Apellido del Miembro:     " + miembro.getApellido());
-//                System.out.println("DNI del Miembro:          " + miembro.getDni());
-//                System.out.println("Tareas asignadas:         " + tarea.getNombre());
-//                System.out.println("Fecha de Incorporación:   " + eqm.getFechaIncorporacion());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
@@ -407,25 +405,25 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         }
     }
 
-    public void crearTablaB() {
-        ArrayList<Object> columnasB = new ArrayList<Object>();
-        columnasB.add("Nombre");
-        columnasB.add("Apellido");
-        columnasB.add("DNI");
-        columnasB.add("Tarea Asignadas");
-        columnasB.add("Fecha de Incorporación");
-        for (Object iter : columnasB) {
-            tablaB.addColumn(iter);
-        }
-        jListaIntegranteEq.setModel(tablaB);
-    }
+//    public void crearTablaB() {
+//        ArrayList<Object> columnasB = new ArrayList<Object>();
+//        columnasB.add("Nombre");
+//        columnasB.add("Apellido");
+//        columnasB.add("DNI");
+//        columnasB.add("Tarea Asignadas");
+//        columnasB.add("Fecha de Incorporación");
+//        for (Object iter : columnasB) {
+//            tablaB.addColumn(iter);
+//        }
+//        jListaIntegranteEq.setModel(tablaB);
+//    }
 
-    public void borrarTablaB() {
-        int a = tablaB.getRowCount() - 1;
-        for (int i = a; i >= 0; i--) {
-            tablaB.removeRow(i);
-        }
-    }
+//    public void borrarTablaB() {
+//        int a = tablaB.getRowCount() - 1;
+//        for (int i = a; i >= 0; i--) {
+//            tablaB.removeRow(i);
+//        }
+//    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -446,11 +444,11 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTable jListaEq;
-    private javax.swing.JTable jListaIntegranteEq;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField txtIdEq;
     private javax.swing.JTextField txtIdPro;
+    private javax.swing.JTextArea txtListaIntegrante;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

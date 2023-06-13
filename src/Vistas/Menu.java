@@ -11,13 +11,14 @@ import AccesoADatos.Conexion;
  * @author edu-1
  */
 public class Menu extends javax.swing.JFrame {
+
     /**
      * Creates new form Menu
      */
-  
+
     public Menu() {
         initComponents();
-   
+
     }
 
     /**
@@ -35,6 +36,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuEquipo = new javax.swing.JMenuItem();
+        Miembro = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
 
@@ -48,7 +51,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 582, Short.MAX_VALUE)
         );
 
         jMenuProyecto.setText("Proyecto");
@@ -85,6 +88,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        Miembro.setText("Miembro");
+
+        jMenuItem2.setText("Miembro");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        Miembro.add(jMenuItem2);
+
+        jMenuBar1.add(Miembro);
+
         jMenu2.setText("Salir");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,14 +131,14 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuProyectoActionPerformed
         // TODO add your handling code here:
 
-         
+
     }//GEN-LAST:event_jMenuProyectoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TOD add your handling code here:
-    escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
-          ViewProyecto ma= new ViewProyecto();
+        ViewProyecto ma = new ViewProyecto();
         ma.setVisible(true);
         escritorio.add(ma);
         escritorio.moveToFront(ma);
@@ -136,17 +151,26 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
         // TODO add your handling code here:
-            
+
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenuEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEquipoActionPerformed
-  escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
-          ViewEquipo eq= new ViewEquipo();
+        ViewEquipo eq = new ViewEquipo();
         eq.setVisible(true);
         escritorio.add(eq);
         escritorio.moveToFront(eq);
     }//GEN-LAST:event_jMenuEquipoActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ViewMiembro vm = new ViewMiembro();
+        vm.setVisible(true);
+        escritorio.add(vm);
+        escritorio.moveToFront(vm);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +208,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Miembro;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -191,6 +216,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuEquipo;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuProyecto;
     // End of variables declaration//GEN-END:variables
 }

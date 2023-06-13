@@ -179,6 +179,51 @@ public class EquipoData {
         }
     }
     
-   
+   public List<String> informeDeEquipo(int idEq) {
+    List<String> resultados = new ArrayList<>();
+    EquipoMiembro eqm;
+    Miembro miembro;
+    Tarea tarea;
+    String sql = "SELECT M.nombreM AS 'Nombre del Miembro', M.apellido AS 'Apellido', M.dni AS 'DNI',\n"
+            + "       GROUP_CONCAT(T.nombreT  SEPARATOR ' -  ') AS 'Tareas asignadas', E.fechaCreacion AS 'Fecha de Creación',\n"
+            + "       EM.fechaIncorporacion AS 'Fecha de Incorporación'\n"
+            + "FROM equipo AS E\n"
+            + "JOIN equipomiembros AS EM ON E.idEquipo = EM.idEquipo\n"
+            + "JOIN miembro AS M ON EM.idMiembro = M.idMiembro\n"
+            + "JOIN tarea AS T ON EM.idMiembroEq = T.idMiembroEq\n"
+            + "WHERE E.idEquipo = ?\n"
+            + "GROUP BY M.idMiembro;";
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idEq);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            miembro = new Miembro();
+            miembro.setNombre(rs.getString("nombreM"));
+            miembro.setApellido(rs.getString("apellido"));
+            miembro.setDni(rs.getInt("dni"));
+            tarea = new Tarea();
+            tarea.setNombre(rs.getString("Tareas asignadas"));
+            eqm = new EquipoMiembro();
+            eqm.setFechaIncorporacion(rs.getDate("fechaIncorporacion").toLocalDate());
+            
+            String resultado = 
+                    "Nombre del Miembro:       " + miembro.getNombre() + "\n"
+                 + "Apellido del Miembro:        " + miembro.getApellido() + "\n"
+                 + "DNI del Miembro:                " + miembro.getDni() + "\n"
+                 + "Tareas asignadas:             " + tarea.getNombre() + "\n"
+                 + "Fecha de Incorporación:    " + eqm.getFechaIncorporacion() + "\n";
+            
+            resultados.add(resultado);
+        }
+        rs.close();
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+    }
+    
+    return resultados;
+}
+
 
 }

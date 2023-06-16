@@ -153,4 +153,27 @@ public class MiembroData {
             activarMiembro(id);
         }
     }
+    
+    public Miembro devolverMi(String nombre, String apellido){
+        Miembro miembro = new Miembro();
+        String sql = "SELECT * FROM miembro WHERE nombreM = ? && apellido = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                miembro.setApellido(rs.getString("apellido"));
+                miembro.setDni(rs.getInt("dni"));
+                miembro.setEstado(rs.getBoolean("estado"));
+                miembro.setIdMiembro(rs.getInt("idMiembro"));
+                miembro.setNombre(rs.getString("nombreM"));
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+        return miembro;
+    }
 }

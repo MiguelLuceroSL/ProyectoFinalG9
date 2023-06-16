@@ -343,8 +343,8 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
         dato = equipoData.listaEquipo();
         for (int i = 0; i < dato.size(); i++) {
-            fila[0] = dato.get(i).getProyectoId().getIdProyecto() + "";
-            fila[1] = dato.get(i).getIdEquipo() + "";
+            fila[0] = dato.get(i).getIdEquipo() + "";
+            fila[1] = dato.get(i).getProyectoId().getIdProyecto() + "";
             fila[2] = dato.get(i).getNombre();
             fila[3] = dato.get(i).getFechaCreacion() + "";
             fila[4] = dato.get(i).isEstado() + "";
@@ -361,7 +361,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
             int idBB = 0;
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
-                String idEquipo = (String) tabla.getValueAt(filaSelec, 1);
+                String idEquipo = (String) tabla.getValueAt(filaSelec, 0);
                 int id = Integer.parseInt(idEquipo);
                 equipoData.informeDeEquipo(id);
 
@@ -414,7 +414,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
-                String idProString = (String) tabla.getValueAt(filaSelec, 1);
+                String idProString = (String) tabla.getValueAt(filaSelec, 0);
                 int id = Integer.parseInt(idProString);
                 equipoData.activarEquipo(id);
             }
@@ -431,7 +431,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
-                String idProString = (String) tabla.getValueAt(filaSelec, 1);
+                String idProString = (String) tabla.getValueAt(filaSelec, 0);
                 int id = Integer.parseInt(idProString);
                 equipoData.desactivarEquipo(id);
             }
@@ -458,8 +458,8 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
             String[] fila = new String[5];
 
             for (int i = 0; i < 1; i++) {
-                fila[0] = equipo.getProyectoId().getIdProyecto() + "";
-                fila[1] = equipo.getIdEquipo() + "";
+                fila[0] = equipo.getIdEquipo() + "";
+                fila[1] = equipo.getProyectoId().getIdProyecto() + "";
                 fila[2] = equipo.getNombre();
                 fila[3] = equipo.getFechaCreacion() + "";
                 fila[4] = equipo.isEstado() + "";
@@ -480,8 +480,8 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     public void crearTabla() {
         ArrayList<Object> columnas = new ArrayList<Object>();
-        columnas.add("id Proyecto");
-        columnas.add("id Equipo");
+        columnas.add("N° Equipo");
+        columnas.add("N° Proyecto");
         columnas.add("Nombre");
         columnas.add("Fecha de Creación");
         columnas.add("Estado");

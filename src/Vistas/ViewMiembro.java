@@ -38,8 +38,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         tfNombre = new javax.swing.JTextField();
         lbDNI = new javax.swing.JLabel();
         tfDNI = new javax.swing.JTextField();
-        lbEstado = new javax.swing.JLabel();
-        checkEstado = new javax.swing.JCheckBox();
         bGuardar = new javax.swing.JButton();
         bSalir = new javax.swing.JButton();
         bActDes = new javax.swing.JButton();
@@ -78,7 +76,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         lbMiembro.setText("Miembro");
 
         lbID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbID.setText("ID");
+        lbID.setText("Numero de Miembro");
 
         bBuscar.setText("Buscar");
         bBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,12 +93,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
 
         lbDNI.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbDNI.setText("DNI");
-
-        lbEstado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbEstado.setText("Estado");
-
-        checkEstado.setEnabled(false);
-        checkEstado.setRolloverEnabled(false);
 
         bGuardar.setText("Guardar");
         bGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +138,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Apellido", "Nombre", "DNI", "Estado"
+                "Num. de Miembro", "Apellido", "Nombre", "DNI", "Estado"
             }
         ));
         jScrollPane3.setViewportView(tTabla);
@@ -163,9 +155,40 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDNI)
+                            .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfNombre)
+                            .addComponent(tfDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbApellido)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(lbMiembro)))
+                                .addGap(19, 19, 19))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addComponent(bBuscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(bActDes)
                         .addGap(18, 18, 18)
                         .addComponent(bGuardar)
@@ -175,32 +198,8 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
                         .addComponent(bLimpiar)
                         .addGap(18, 18, 18)
                         .addComponent(bSalir)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3))
+                        .addGap(30, 30, 30)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbID)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbApellido)
-                            .addComponent(lbDNI)
-                            .addComponent(lbEstado)
-                            .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(checkEstado)
-                            .addComponent(tfApellido)
-                            .addComponent(tfNombre)
-                            .addComponent(tfDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbMiembro)
-                                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(bBuscar)))))
-                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +215,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbApellido)
                     .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNombre)
                     .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,18 +225,14 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
                     .addComponent(tfDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEstado)
-                    .addComponent(checkEstado))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bGuardar)
                     .addComponent(bSalir)
                     .addComponent(bLista)
                     .addComponent(bLimpiar)
                     .addComponent(bActDes))
                 .addGap(36, 36, 36)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -254,7 +249,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
             miembro = miembroD.buscarMiembroPorId(id);
             tfApellido.setText(miembro.getApellido());
             tfNombre.setText(miembro.getNombre());
-            checkEstado.setSelected(miembro.isEstado());
             tfID.setText(miembro.getIdMiembro() + "");
             tfDNI.setText(miembro.getDni() + "");
         }else{
@@ -279,7 +273,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     private void bActDesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActDesActionPerformed
         if (!tfID.getText().equals("")) {
             int id = Integer.parseInt(tfID.getText());
-            miembroD.activarDesactivar(id);
+            miembroD.activarDesactivarEstado(id);
             limpiar();
         }else{
             JOptionPane.showMessageDialog(null, "Ingrese una ID");
@@ -312,7 +306,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bListaActionPerformed
 
     public void limpiar(){
-        checkEstado.setSelected(false);
         tfApellido.setText("");
         tfDNI.setText("");
         tfNombre.setText("");
@@ -344,7 +337,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     private javax.swing.JButton bLimpiar;
     private javax.swing.JButton bLista;
     private javax.swing.JButton bSalir;
-    private javax.swing.JCheckBox checkEstado;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -352,7 +344,6 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel lbApellido;
     private javax.swing.JLabel lbDNI;
-    private javax.swing.JLabel lbEstado;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMiembro;
     private javax.swing.JLabel lbNombre;

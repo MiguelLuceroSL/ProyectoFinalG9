@@ -38,7 +38,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuEquipo = new javax.swing.JMenuItem();
         Miembro = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mME = new javax.swing.JMenuItem();
         mTarea = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -101,13 +101,13 @@ public class Menu extends javax.swing.JFrame {
         });
         Miembro.add(jMenuItem2);
 
-        jMenuItem4.setText("Añadir miembro a un equipo");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mME.setText("Añadir miembro a un equipo");
+        mME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mMEActionPerformed(evt);
             }
         });
-        Miembro.add(jMenuItem4);
+        Miembro.add(mME);
 
         jMenuBar1.add(Miembro);
 
@@ -200,9 +200,14 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(vm);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void mMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mMEActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ViewEquipoMiembro vem = new ViewEquipoMiembro();
+        vem.setVisible(true);
+        escritorio.add(vem);
+        escritorio.moveToFront(vem);
+    }//GEN-LAST:event_mMEActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         System.exit(0);
@@ -263,8 +268,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu jMenuProyecto;
+    private javax.swing.JMenuItem mME;
     private javax.swing.JMenu mTarea;
     // End of variables declaration//GEN-END:variables
 }

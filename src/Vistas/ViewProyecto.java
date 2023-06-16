@@ -51,7 +51,6 @@ private TareaData tareaData;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jCalendario = new com.toedter.calendar.JDateChooser();
-        jEstado = new javax.swing.JCheckBox();
         btnGuardar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnLista = new javax.swing.JButton();
@@ -89,14 +88,11 @@ private TareaData tareaData;
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jCalendarioAncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
         });
-
-        jEstado.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jEstado.setText("Estado");
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +127,7 @@ private TareaData tareaData;
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Descripción", "Fecha Inicial", "Estado"
+                "N° Proyecto", "Nombre", "Descripción", "Fecha Inicial", "Estado"
             }
         ) {
             Class[] types = new Class [] {
@@ -146,9 +142,9 @@ private TareaData tareaData;
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 none(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane2.setViewportView(jListaProyec);
@@ -206,11 +202,8 @@ private TareaData tareaData;
                                     .addComponent(jLabel2))
                                 .addGap(79, 79, 79)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jEstado))
-                                    .addComponent(jScrollPane1)
+                                    .addComponent(jCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                                     .addComponent(txtNombre)))
                             .addComponent(jLabel4)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -250,11 +243,10 @@ private TareaData tareaData;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCalendario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jEstado, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -289,15 +281,10 @@ private TareaData tareaData;
             String descripcion = txtDescripcion.getText();
             Date fechaSql = new Date(jCalendario.getDate().getTime());
             LocalDate fechaCreacion = fechaSql.toLocalDate();
-
-            boolean estado = jEstado.isSelected();
-
-            proyecto = new Proyecto(nombre, descripcion, fechaCreacion, estado);
+            proyecto = new Proyecto(nombre, descripcion, fechaCreacion, true);
             proyectoData.guardarProyecto(proyecto);
-
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERROR ");
-
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -429,7 +416,6 @@ dispose();
     private javax.swing.JButton btnProceso;
     private javax.swing.JButton btnSalir;
     private com.toedter.calendar.JDateChooser jCalendario;
-    private javax.swing.JCheckBox jEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

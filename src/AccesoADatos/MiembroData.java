@@ -124,6 +124,27 @@ public class MiembroData {
         return lista;
     }
     
+    public void activarDesactivarEstado(int id){
+        Miembro miembro = buscarMiembroPorId(id);
+        if (miembro.isEstado()) {
+            try {
+            String sql = "UPDATE miembro SET estado = 0 WHERE idMiembro = ? AND estado = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, true);
+            int fila = ps.executeUpdate();
+            ps.close();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, " Se desactivó el miembro.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Miembro "+e.getMessage());
+        }
+        } else {
+            activarMiembro(id);
+        }
+    }
+    
     public void activarDesactivar(int id){
         Miembro miembro = buscarMiembroPorId(id);
         if (miembro.isEstado()) {

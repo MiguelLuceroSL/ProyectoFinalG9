@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EquipoMiembroData {
@@ -99,6 +100,36 @@ public class EquipoMiembroData {
         }
         
         return equipoMiembro;
+    }
+    
+    public List<EquipoMiembro> devolverEquiposId(int id){
+        List<EquipoMiembro> lista = null;
+        EquipoData eqD = new EquipoData();
+        Equipo eq = null;
+        Miembro miembro = null;
+        MiembroData miembroD = new MiembroData();
+        EquipoMiembro em = null;
+        String sql = "SELECT * equipomiembros WHERE idEquipo = ?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                eq = eqD.buscarEquipoPorId(rs.getInt("idEquipo"));
+                em.setEquipoId(eq);
+                miembro = miembroD.buscarMiembroPorId(rs.getInt("idMiembro"));
+                em.setMiembroId(miembro);
+                em.setFechaIncorporacion(rs.getDate("fechaIncorporacion").toLocalDate());
+                em.setIdMiembroEq(rs.getInt("idMiembroEq"));
+                lista.add(em);
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el equipo-miembro");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Equipo-Miembro" + ex.getMessage());
+        }
+        return lista;
     }
     
     public void borrarMiembroEq(int id){

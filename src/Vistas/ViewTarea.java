@@ -97,7 +97,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         lbTareaNombre.setText("Nombre de la Tarea");
 
         lbIDEM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbIDEM.setText("ID EquipoMiembro");
+        lbIDEM.setText("N° Inscripcion");
 
         lbCreacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbCreacion.setText("Fecha de Creacion");
@@ -130,7 +130,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         lbActualizarEstado.setText("Actualizar estado");
 
         lbIDTarea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbIDTarea.setText("ID Tarea");
+        lbIDTarea.setText("N° Tarea");
 
         comboEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija un estado", "Pendiente", "En Proceso", "Completada" }));
 
@@ -145,7 +145,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         lbComentario.setText("Agregar un Comentario");
 
         lbIDTarea2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbIDTarea2.setText("ID Tarea");
+        lbIDTarea2.setText("N° Tarea");
 
         comentario.setColumns(20);
         comentario.setRows(5);
@@ -170,7 +170,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID Tarea", "Nombre", "ID EquipoMiembro", "Creacion", "Cierre"
+                "N° Tarea", "Nombre", "N° Inscripcion", "Creacion", "Cierre"
             }
         ));
         jScrollPane3.setViewportView(tablaTarea);
@@ -225,7 +225,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 100, Short.MAX_VALUE)
+                .addGap(0, 98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -38,8 +38,11 @@ public class Menu extends javax.swing.JFrame {
         jMenuEquipo = new javax.swing.JMenuItem();
         Miembro = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        mTarea = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +101,27 @@ public class Menu extends javax.swing.JFrame {
         });
         Miembro.add(jMenuItem2);
 
+        jMenuItem4.setText("Añadir miembro a un equipo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        Miembro.add(jMenuItem4);
+
         jMenuBar1.add(Miembro);
+
+        mTarea.setText("Tarea");
+
+        jMenuItem3.setText("Tareas");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        mTarea.add(jMenuItem3);
+
+        jMenuBar1.add(mTarea);
 
         jMenu2.setText("Salir");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +130,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("jMenu1");
-        jMenu2.add(jMenu1);
+        Salir.setText("Salir del sistema");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Salir);
 
         jMenuBar1.add(jMenu2);
 
@@ -172,6 +200,23 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(vm);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ViewTarea vt = new ViewTarea();
+        vt.setVisible(true);
+        escritorio.add(vt);
+        escritorio.moveToFront(vt);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,14 +254,17 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Miembro;
+    private javax.swing.JMenuItem Salir;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuEquipo;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu jMenuProyecto;
+    private javax.swing.JMenu mTarea;
     // End of variables declaration//GEN-END:variables
 }

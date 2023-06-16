@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class MiembroData {
@@ -99,6 +101,27 @@ public class MiembroData {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Miembro "+e.getMessage());
         }
+    }
+    
+    public List<Miembro> listarMiembros(){
+        List<Miembro> lista = new ArrayList<>();
+        try{
+            String sql = "SELECT * FROM miembro";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Miembro miembro = new Miembro();
+                miembro.setApellido(rs.getString("apellido"));
+                miembro.setNombre(rs.getString("nombreM"));
+                miembro.setDni(rs.getInt("dni"));
+                miembro.setEstado(rs.getBoolean("estado"));
+                miembro.setIdMiembro(rs.getInt("idMiembro"));
+                lista.add(miembro);
+            }
+        }catch(SQLException e){
+        
+        }
+        return lista;
     }
     
     public void activarDesactivar(int id){

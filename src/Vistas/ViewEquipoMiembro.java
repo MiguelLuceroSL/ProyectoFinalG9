@@ -250,6 +250,7 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
 
     private void bListaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListaEActionPerformed
         borrarTabla();
+      try{
         List<Equipo> dato;
         String[] fila = new String[2];
         dato = equipoData.listaEquipo();
@@ -260,6 +261,9 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
             tabla.addRow(fila);
         }
         tablaE.setModel(tabla);
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bListaEActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -267,6 +271,7 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void bAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarActionPerformed
+      try{
         int filaSelec = tablaE.getSelectedRow();
         String nombreEq = (String) tabla.getValueAt(filaSelec, 0);
 
@@ -281,11 +286,14 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
         Miembro miembro = mD.devolverMi(nombre, apellido);
 
         meD.guardarEquipoMiembro(new EquipoMiembro(equipo, miembro, fechaIncor));
-
+  } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bAgregarActionPerformed
 
     private void bInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscripcionesActionPerformed
         borrarTabla2();
+     try{
         List<EquipoMiembro> dato;
         String[] fila = new String[4];
         dato = meD.listarEM();
@@ -297,9 +305,13 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
             tabla2.addRow(fila);
         }
         tablaIns.setModel(tabla2);
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bInscripcionesActionPerformed
 
     public void crearTabla2() {
+      
         ArrayList<Object> columnas = new ArrayList<Object>();
         columnas.add("N° Inscripcion");
         columnas.add("Fecha de Incorporacion");

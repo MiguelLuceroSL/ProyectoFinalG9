@@ -245,6 +245,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+     try{
         Miembro miembro;
         if (!tfID.getText().equals("")) {
             int id = Integer.parseInt(tfID.getText());
@@ -256,10 +257,15 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Ingrese una ID");
         }
+           } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        Miembro miembro;
+  
+        try{
+            Miembro miembro;
         if (!tfApellido.getText().equals("")&&!tfNombre.getText().equals("")&&!tfDNI.getText().equals("")) {
             String apellido = tfApellido.getText();
             String nombre = tfNombre.getText();
@@ -270,15 +276,22 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Alguno de los siguientes campos esta vacio: Apellido - Nombre - DNI");
         }
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bGuardarActionPerformed
 
     private void bActDesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActDesActionPerformed
+      try{
         if (!tfID.getText().equals("")) {
             int id = Integer.parseInt(tfID.getText());
             miembroD.activarDesactivarEstado(id);
             limpiar();
         }else{
             JOptionPane.showMessageDialog(null, "Ingrese una ID");
+        }
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
         }
     }//GEN-LAST:event_bActDesActionPerformed
 
@@ -287,6 +300,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListaActionPerformed
+     try{
         DefaultTableModel tabla = new DefaultTableModel();
         List<Miembro> dato;
         String[] columnas = new String[5];
@@ -305,6 +319,9 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
             tabla.addRow(columnas);
         }
         tTabla.setModel(tabla);
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bListaActionPerformed
 
     public void limpiar(){

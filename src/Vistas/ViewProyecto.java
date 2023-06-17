@@ -307,6 +307,7 @@ private TareaData tareaData;
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         borrarTabla();
+    try{
         List<Proyecto> dato;
 
         String[] fila = new String[5];
@@ -321,7 +322,9 @@ private TareaData tareaData;
             tabla.addRow(fila);
         }
         jListaProyec.setModel(tabla);
-
+   } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
 
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -381,6 +384,7 @@ dispose();
 
     private void btnProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesoActionPerformed
           int idBB = 0;
+          try{
             int filaSelec = jListaProyec.getSelectedRow();
             if (filaSelec != -1) {
                 String idEquipo = (String) tabla.getValueAt(filaSelec, 0);
@@ -399,6 +403,9 @@ dispose();
             txtArealist.setText("Aun no hay Tareas en este Proyecto");
         }
             }
+               } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_btnProcesoActionPerformed
     public void crearTabla() {
         ArrayList<Object> columnas = new ArrayList<Object>();

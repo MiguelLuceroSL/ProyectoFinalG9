@@ -16,7 +16,7 @@ import Entidades.Proyecto;
 import Entidades.Tarea;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -337,6 +337,7 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         borrarTabla();
+       try{
         List<Equipo> dato;
 
         String[] fila = new String[5];
@@ -351,7 +352,9 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
             tabla.addRow(fila);
         }
         jListaEq.setModel(tabla);
-
+  } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
 
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -378,25 +381,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 }
 
             }
-            //              String[] fila = new String[5];
-//
-//
-//                for (int i = 0; i < 1; i++) {
-//                    fila[0] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getNombre();
-//                    fila[1] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getApellido();
-//                    fila[2] = eqMdata.buscarEquipoMiembroPorId(id).getMiembroId().getDni() + "";
-//
-//                    int idT = tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorIdMiembro(id).getIdMiembroEq()).getMiembroEqId().getIdMiembroEq();
-//                   fila[3] = tData.buscarTareaPorIdMiEq(idT).getNombre().concat( tData.buscarTareaPorIdMiEq(eqMdata.buscarEquipoMiembroPorId(idT).getIdMiembroEq()).getNombre());
-//
-//                    fila[4] = eqMdata.buscarEquipoMiembroPorId(id).getFechaIncorporacion() + "";
-//
-//                    tablaB.addRow(fila);
-//                }
-//
-//            }
-//            jListaIntegranteEq.setModel(tablaB);
-
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }

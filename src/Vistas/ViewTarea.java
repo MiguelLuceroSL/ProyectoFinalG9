@@ -13,6 +13,7 @@ import Entidades.Tarea;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -324,6 +325,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        try{
         String nombre = tfTareaNombre.getText();
         int idEM = Integer.parseInt(tfIDEM.getText());
         Date fechaSql = new Date(dateCreacion.getDate().getTime());
@@ -334,9 +336,13 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         Tarea tarea = new Tarea(equipoMiembroAux, nombre, cierre, creacion, 0);
         tareaD.guardarTarea(tarea);
         limpiar();
+           } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR no se pudo guardar "+ex.getMessage());
+        }
     }//GEN-LAST:event_bGuardarActionPerformed
 
     private void bListaTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListaTareasActionPerformed
+     try{
         DefaultTableModel tabla = new DefaultTableModel();
         List<Tarea> dato;
         String[] columnas = new String[5];
@@ -355,6 +361,9 @@ public class ViewTarea extends javax.swing.JInternalFrame {
             tabla.addRow(columnas);
         }
         tablaTarea.setModel(tabla);
+           } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bListaTareasActionPerformed
 
     private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
@@ -366,6 +375,7 @@ public class ViewTarea extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bActualizarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarEstadoActionPerformed
+        try{
         int id = Integer.parseInt(tfIDTarea.getText());
         String itemSeleccionado = comboEstados.getSelectedItem().toString();
         switch (itemSeleccionado) {
@@ -379,9 +389,13 @@ public class ViewTarea extends javax.swing.JInternalFrame {
                 tareaD.actualizarEstadoTarea(2, id);
                 break;
         }
+           } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR no se pudo Actualizar "+ex.getMessage());
+        }
     }//GEN-LAST:event_bActualizarEstadoActionPerformed
 
     private void bAgregarComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarComentarioActionPerformed
+      try{
         int id = Integer.parseInt(tfIDTarea2.getText());
         Tarea tarrea = tareaD.buscarTareaPorId(id);
         Date fechaSql = new Date(dateAvance.getDate().getTime());
@@ -389,6 +403,9 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         String comenta = comentario.getText();
         Comentario coment = new Comentario(comenta, fecha, tarrea);
         comentD.guardarComentario(coment);
+           } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        }
     }//GEN-LAST:event_bAgregarComentarioActionPerformed
 
     public void limpiar() {

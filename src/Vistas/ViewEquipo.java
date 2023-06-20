@@ -75,7 +75,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListaEq = new javax.swing.JTable();
         btnGuardar = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
         btnLista = new javax.swing.JButton();
         btnActivar = new javax.swing.JButton();
         btnDesactivar = new javax.swing.JButton();
@@ -137,8 +136,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-
-        btnBorrar.setText("Borrar");
 
         btnLista.setText("Lista");
         btnLista.addActionListener(new java.awt.event.ActionListener() {
@@ -212,30 +209,14 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(121, 121, 121)
-                            .addComponent(jLabel6)
-                            .addGap(88, 88, 88)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnIntegrantes))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(91, 91, 91)
-                                        .addComponent(btnBorrar))
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
+                                .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtIdEq, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,15 +225,34 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                                     .addComponent(txtIdPro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jCalendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(btnLista)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnActivar)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnDesactivar)))))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                        .addComponent(jCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnGuardar)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(btnLista)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(btnActivar)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(btnDesactivar)))
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(121, 121, 121)
+                                    .addComponent(jLabel6)
+                                    .addGap(88, 88, 88)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnIntegrantes)))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +279,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
-                    .addComponent(btnBorrar)
                     .addComponent(btnLista)
                     .addComponent(btnActivar)
                     .addComponent(btnDesactivar))
@@ -482,28 +481,10 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         }
     }
 
-//    public void crearTablaB() {
-//        ArrayList<Object> columnasB = new ArrayList<Object>();
-//        columnasB.add("Nombre");
-//        columnasB.add("Apellido");
-//        columnasB.add("DNI");
-//        columnasB.add("Tarea Asignadas");
-//        columnasB.add("Fecha de Incorporación");
-//        for (Object iter : columnasB) {
-//            tablaB.addColumn(iter);
-//        }
-//        jListaIntegranteEq.setModel(tablaB);
-//    }
-//    public void borrarTablaB() {
-//        int a = tablaB.getRowCount() - 1;
-//        for (int i = a; i >= 0; i--) {
-//            tablaB.removeRow(i);
-//        }
-//    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActivar;
-    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDesactivar;
     private javax.swing.JButton btnGuardar;

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.EquipoData;
@@ -17,10 +13,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author thefl
- */
 public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
 
     private DefaultTableModel tabla;
@@ -283,17 +275,12 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
       try{
         int filaSelec = tablaE.getSelectedRow();
         String nombreEq = (String) tabla.getValueAt(filaSelec, 0);
-
         String nombre = tfNombre.getText();
         String apellido = tfApellido.getText();
-
         Date fechaSql = new Date(dateIncor.getDate().getTime());
         LocalDate fechaIncor = fechaSql.toLocalDate();
-
         Equipo equipo = equipoData.devolverEq(nombreEq);
-
         Miembro miembro = mD.devolverMi(nombre, apellido);
-
         meD.guardarEquipoMiembro(new EquipoMiembro(equipo, miembro, fechaIncor));
   } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());

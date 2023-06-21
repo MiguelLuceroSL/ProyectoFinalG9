@@ -304,7 +304,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = new DefaultTableModel();
         List<Miembro> dato;
         String[] columnas = new String[5];
-        tabla.addColumn("ID");
+        tabla.addColumn("Num. de Miembro");
         tabla.addColumn("Apellido");
         tabla.addColumn("Nombre");
         tabla.addColumn("DNI");
@@ -332,7 +332,7 @@ public class ViewMiembro extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = new DefaultTableModel();
         List<Miembro> dato;
         String[] columnas = new String[5];
-        tabla.addColumn("ID");
+        tabla.addColumn("Num. de Miembro");
         tabla.addColumn("Apellido");
         tabla.addColumn("Nombre");
         tabla.addColumn("DNI");

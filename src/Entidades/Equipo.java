@@ -70,7 +70,6 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "ID Equipo: " + idEquipo + "/ Nombre: " + nombre + "/ Fecha de Creacion: " + fechaCreacion + "/ Estado: " + estado;
+        return "Num de Equipo: " + idEquipo + "/ Nombre: " + nombre + "/ Fecha de Creacion: " + fechaCreacion + "/ Estado: " + estado;
     }
-
 }

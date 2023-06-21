@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.ComentarioData;
@@ -16,19 +12,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author thefl
- */
 public class ViewTarea extends javax.swing.JInternalFrame {
 
     private EquipoMiembroData equipoMiembroD;
     private TareaData tareaD;
     private ComentarioData comentD;
 
-    /**
-     * Creates new form ViewTarea
-     */
     public ViewTarea() {
         initComponents();
         equipoMiembroD = new EquipoMiembroData();
@@ -343,9 +332,9 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = new DefaultTableModel();
         List<Tarea> dato;
         String[] columnas = new String[5];
-        tabla.addColumn("ID Tarea");
+        tabla.addColumn("Num. de Tarea");
         tabla.addColumn("Nombre");
-        tabla.addColumn("ID EquipoMiembro");
+        tabla.addColumn("Num. de EquipoMiembro");
         tabla.addColumn("Creacion");
         tabla.addColumn("Cierre");
         dato = tareaD.listarTareas();
@@ -418,9 +407,9 @@ public class ViewTarea extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = new DefaultTableModel();
         List<Tarea> dato;
         String[] columnas = new String[5];
-        tabla.addColumn("ID Tarea");
+        tabla.addColumn("Num. de Tarea");
         tabla.addColumn("Nombre");
-        tabla.addColumn("ID EquipoMiembro");
+        tabla.addColumn("Num. de EquipoMiembro");
         tabla.addColumn("Creacion");
         tabla.addColumn("Cierre");
         dato = tareaD.listarTareas();

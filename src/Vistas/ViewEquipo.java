@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.EquipoData;
@@ -22,10 +18,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author edu-1
- */
 public class ViewEquipo extends javax.swing.JInternalFrame {
 
     private Equipo equipo;
@@ -56,7 +48,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         tabla = new DefaultTableModel();
         crearTabla();
         tablaB = new DefaultTableModel();
-        // crearTablaB();
     }
 
     @SuppressWarnings("unchecked")
@@ -304,23 +295,17 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
         try {
             int idP = Integer.parseInt(txtIdPro.getText());
             proyecto = proData.buscarProyectoPorId(idP);
             String nombre = txtNombre.getText();
-
             Date fechaSql = new Date(jCalendario.getDate().getTime());
             LocalDate fechaCreacion = fechaSql.toLocalDate();
-
             equipo = new Equipo(proyecto, nombre, fechaCreacion, true);
             equipoData.guardarEquipo(equipo);
-
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERROR ");
-
         }
-
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtIdProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProActionPerformed
@@ -330,53 +315,45 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
     private void txtIdProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdProMouseClicked
         // TODO add your handling code here:
-
-
     }//GEN-LAST:event_txtIdProMouseClicked
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         borrarTabla();
-       try{
-        List<Equipo> dato;
-
-        String[] fila = new String[5];
-
-        dato = equipoData.listaEquipo();
-        for (int i = 0; i < dato.size(); i++) {
-            fila[0] = dato.get(i).getIdEquipo() + "";
-            fila[1] = dato.get(i).getProyectoId().getIdProyecto() + "";
-            fila[2] = dato.get(i).getNombre();
-            fila[3] = dato.get(i).getFechaCreacion() + "";
-            fila[4] = dato.get(i).isEstado() + "";
-            tabla.addRow(fila);
+        try {
+            List<Equipo> dato;
+            String[] fila = new String[5];
+            dato = equipoData.listaEquipo();
+            for (int i = 0; i < dato.size(); i++) {
+                fila[0] = dato.get(i).getIdEquipo() + "";
+                fila[1] = dato.get(i).getProyectoId().getIdProyecto() + "";
+                fila[2] = dato.get(i).getNombre();
+                fila[3] = dato.get(i).getFechaCreacion() + "";
+                fila[4] = dato.get(i).isEstado() + "";
+                tabla.addRow(fila);
+            }
+            jListaEq.setModel(tabla);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR " + ex.getMessage());
         }
-        jListaEq.setModel(tabla);
-  } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
-        }
-
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void btnIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntegrantesActionPerformed
         try {
-
             int idBB = 0;
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
                 String idEquipo = (String) tabla.getValueAt(filaSelec, 0);
                 int id = Integer.parseInt(idEquipo);
                 equipoData.informeDeEquipo(id);
-
                 List<String> resultados = equipoData.informeDeEquipo(id);
                 if (!resultados.isEmpty()) {
-                      StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder();
                     for (String resultado : resultados) {
                         resultado = resultado.substring(0, resultado.length() - 1);
- sb.append(resultado).append("\n\n");
+                        sb.append(resultado).append("\n\n");
                         txtListaIntegrante.setText(sb.toString());
                     }
                 } else {
-
                     txtListaIntegrante.setText("Aun no hay Miembros en este Equipo");
                 }
 
@@ -388,14 +365,10 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
     private void jListaEqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaEqMouseClicked
 
-
     }//GEN-LAST:event_jListaEqMouseClicked
 
     private void btnActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivarActionPerformed
-        // TODO add your handling code here:
-
         try {
-
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
                 String idProString = (String) tabla.getValueAt(filaSelec, 0);
@@ -406,13 +379,10 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
-
     }//GEN-LAST:event_btnActivarActionPerformed
 
     private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarActionPerformed
-        // TODO add your handling code here:
         try {
-
             int filaSelec = jListaEq.getSelectedRow();
             if (filaSelec != -1) {
                 String idProString = (String) tabla.getValueAt(filaSelec, 0);
@@ -423,24 +393,14 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
-
     }//GEN-LAST:event_btnDesactivarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
         borrarTabla();
         int id = Integer.parseInt(txtIdEq.getText());
         try {
             equipo = equipoData.buscarEquipoPorId(id);
-//
-//txtIdPro.setText(equipo.getProyectoId().getIdProyecto()+"");
-//txtNombre.setText(equipo.getNombre());
-//jCalendario.setDate(Date.valueOf(equipo.getFechaCreacion()));
-//jEstado.setSelected(equipo.isEstado());
-//  List<Equipo> dato;
-
             String[] fila = new String[5];
-
             for (int i = 0; i < 1; i++) {
                 fila[0] = equipo.getIdEquipo() + "";
                 fila[1] = equipo.getProyectoId().getIdProyecto() + "";
@@ -450,18 +410,15 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
                 tabla.addRow(fila);
             }
             jListaEq.setModel(tabla);
-
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERROR el  equipo debe haber sido eliminado");
         }
-
-
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+    
     public void crearTabla() {
         ArrayList<Object> columnas = new ArrayList<Object>();
         columnas.add("N° Equipo");
@@ -481,7 +438,6 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
             tabla.removeRow(i);
         }
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

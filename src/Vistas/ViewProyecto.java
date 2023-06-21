@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.ProyectoData;
@@ -14,25 +10,19 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author edu-1
- */
 public class ViewProyecto extends javax.swing.JInternalFrame {
 
     private Proyecto proyecto;
     private ProyectoData proyectoData;
     private DefaultTableModel tabla;
-private TareaData tareaData;
-    /**
-     * Creates new form ViewProyecto
-     */
+    private TareaData tareaData;
+
     public ViewProyecto() {
         initComponents();
         proyecto = new Proyecto();
         proyectoData = new ProyectoData();
         tabla = new DefaultTableModel();
-        tareaData=new TareaData();
+        tareaData = new TareaData();
         crearTabla();
     }
 
@@ -85,10 +75,10 @@ private TareaData tareaData;
         jLabel4.setText("Fecha de creación");
 
         jCalendario.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jCalendarioAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -132,10 +122,10 @@ private TareaData tareaData;
             }
         });
         jListaProyec.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 none(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -178,6 +168,7 @@ private TareaData tareaData;
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Tareas del Proyecto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,15 +205,16 @@ private TareaData tareaData;
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnDesactivar)
                                         .addGap(39, 39, 39))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(250, 250, 250)
-                                    .addComponent(btnProceso)
-                                    .addGap(184, 184, 184)
-                                    .addComponent(btnSalir))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnProceso)
+                                        .addGap(184, 184, 184)
+                                        .addComponent(btnSalir))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLabel1)))
@@ -275,7 +267,6 @@ private TareaData tareaData;
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
         try {
             String nombre = txtNombre.getText();
             String descripcion = txtDescripcion.getText();
@@ -294,23 +285,23 @@ private TareaData tareaData;
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         borrarTabla();
-    try{
-        List<Proyecto> dato;
+        try {
+            List<Proyecto> dato;
 
-        String[] fila = new String[5];
+            String[] fila = new String[5];
 
-        dato = proyectoData.listarProyectos();
-        for (int i = 0; i < dato.size(); i++) {
-            fila[0] = dato.get(i).getIdProyecto() + "";
-            fila[1] = dato.get(i).getNombre();
-            fila[2] = dato.get(i).getDescripcion();
-            fila[3] = dato.get(i).getFechaInicio() + "";
-            fila[4] = dato.get(i).isEstado() + "";
-            tabla.addRow(fila);
-        }
-        jListaProyec.setModel(tabla);
-   } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+            dato = proyectoData.listarProyectos();
+            for (int i = 0; i < dato.size(); i++) {
+                fila[0] = dato.get(i).getIdProyecto() + "";
+                fila[1] = dato.get(i).getNombre();
+                fila[2] = dato.get(i).getDescripcion();
+                fila[3] = dato.get(i).getFechaInicio() + "";
+                fila[4] = dato.get(i).isEstado() + "";
+                tabla.addRow(fila);
+            }
+            jListaProyec.setModel(tabla);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR " + ex.getMessage());
         }
 
     }//GEN-LAST:event_btnListaActionPerformed
@@ -335,7 +326,7 @@ private TareaData tareaData;
     }//GEN-LAST:event_btnDesactivarActionPerformed
 
     private void btnActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivarActionPerformed
-          try {
+        try {
 
             int filaSelec = jListaProyec.getSelectedRow();
             if (filaSelec != -1) {
@@ -350,32 +341,30 @@ private TareaData tareaData;
     }//GEN-LAST:event_btnActivarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-dispose();
+        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesoActionPerformed
-          int idBB = 0;
-          try{
+        int idBB = 0;
+        try {
             int filaSelec = jListaProyec.getSelectedRow();
             if (filaSelec != -1) {
                 String idEquipo = (String) tabla.getValueAt(filaSelec, 0);
                 int id = Integer.parseInt(idEquipo);
-     
-                
-                List<String> resultados =  tareaData.areasDeproyectoParaVista(id);
-           if (!resultados.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            for (String resultado : resultados) {
-                resultado = resultado.substring(0, resultado.length() - 1);
-                sb.append(resultado).append("\n\n");
+                List<String> resultados = tareaData.areasDeproyectoParaVista(id);
+                if (!resultados.isEmpty()) {
+                    StringBuilder sb = new StringBuilder();
+                    for (String resultado : resultados) {
+                        resultado = resultado.substring(0, resultado.length() - 1);
+                        sb.append(resultado).append("\n\n");
+                    }
+                    txtArealist.setText(sb.toString());
+                } else {
+                    txtArealist.setText("Aun no hay Tareas en este Proyecto");
+                }
             }
-            txtArealist.setText(sb.toString());
-        } else {
-            txtArealist.setText("Aun no hay Tareas en este Proyecto");
-        }
-            }
-               } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR " + ex.getMessage());
         }
     }//GEN-LAST:event_btnProcesoActionPerformed
     public void crearTabla() {

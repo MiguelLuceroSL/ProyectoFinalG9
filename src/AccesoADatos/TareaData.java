@@ -78,10 +78,10 @@ public class TareaData {
         String estado = "";
         try {
             String sql = "SELECT  P.idProyecto AS 'Proyecto', P.nombreP AS 'Proyecto',T.nombreT AS 'Tarea', T.estado AS 'Estado', T.idTarea AS 'id', EM.idMiembro AS 'Miembro del Equipo', E.nombreE AS 'Equipo'\n"
-                    + "                                         FROM proyecto AS P \n"
-                    + "                                       JOIN equipo AS E ON P.idProyecto = E.idProyecto \n"
-                    + "                                     JOIN equipomiembros AS EM ON E.idEquipo = EM.idEquipo \n"
-                    + "                                      JOIN tarea AS T ON EM.idMiembroEq = T.idMiembroEq WHERE P.idProyecto= ? AND  T.estado=0 OR T.estado=1  ";
+                    + " FROM proyecto AS P \n"
+                    + " JOIN equipo AS E ON P.idProyecto = E.idProyecto \n"
+                    + " JOIN equipomiembros AS EM ON E.idEquipo = EM.idEquipo \n"
+                    + " JOIN tarea AS T ON EM.idMiembroEq = T.idMiembroEq WHERE P.idProyecto= ? AND  T.estado=0 OR T.estado=1  ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -274,7 +274,6 @@ public class TareaData {
                     resultados.add(resultado);
                 }
             }
-
             rs.close();
             ps.close();
         } catch (SQLException ex) {

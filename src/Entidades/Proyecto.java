@@ -69,7 +69,7 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        return  "iD=" + idProyecto + ", nombre: " + nombre + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", estado: " + estado;
+        return  "Num de Proyecto=" + idProyecto + ", nombre: " + nombre + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", estado: " + estado;
     }
     
 

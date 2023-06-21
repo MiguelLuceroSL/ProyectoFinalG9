@@ -46,7 +46,7 @@ public class ProyectoData {
         Proyecto proyecto = new Proyecto();
         String sql = "SELECT * FROM proyecto WHERE idProyecto=?";
         PreparedStatement ps = null;
-        try{
+        try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, idp);
             ResultSet rs = ps.executeQuery();
@@ -59,7 +59,7 @@ public class ProyectoData {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el proyecto");
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Proyecto" + ex.getMessage());
         }
         return proyecto;
@@ -86,8 +86,8 @@ public class ProyectoData {
         }
         return listaP;
     }
-    
-    public void activarProyecto(int id){
+
+    public void activarProyecto(int id) {
         try {
             String sql = "UPDATE proyecto SET estado = 1 WHERE idProyecto = ? AND estado = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -99,11 +99,11 @@ public class ProyectoData {
                 JOptionPane.showMessageDialog(null, " Se activó el proyecto.");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Proyecto "+e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Proyecto " + e.getMessage());
         }
     }
-    
-    public void desactivarProyecto(int id){
+
+    public void desactivarProyecto(int id) {
         try {
             String sql = "UPDATE proyecto SET estado = 0 WHERE idProyecto = ? AND estado = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -115,29 +115,28 @@ public class ProyectoData {
             }
             ps.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto " + e.getMessage());
         }
     }
-    public  void borrarProyecto(int id) {
-        String sql="DELETE FROM `proyecto` WHERE idProyecto= ?";
-           try {
-         
+
+    public void borrarProyecto(int id) {
+        String sql = "DELETE FROM `proyecto` WHERE idProyecto= ?";
+        try {
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            
+
             int fila = ps.executeUpdate();
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, " Se BORRÓ  de la lista el proyecto.");
             }
             ps.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proyecto " + e.getMessage());
         }
-
-
-
     }
-    public void activarDesactivar(int id){
+
+    public void activarDesactivar(int id) {
         Proyecto proyecto = buscarProyectoPorId(id);
         if (proyecto.isEstado()) {
             desactivarProyecto(id);

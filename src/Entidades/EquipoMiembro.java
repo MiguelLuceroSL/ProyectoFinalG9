@@ -57,11 +57,8 @@ public class EquipoMiembro {
         this.fechaIncorporacion = fechaIncorporacion;
     }
     
-    
-
     @Override
     public String toString() {
         return "idMiembroEq= " + idMiembroEq + ", idEquipo= " + equipoId.getIdEquipo() + ", idMiembro= " + miembroId.getIdMiembro() + ", fechaIncorporacion= " + fechaIncorporacion;
     }
-
 }

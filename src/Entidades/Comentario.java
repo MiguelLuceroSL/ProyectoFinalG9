@@ -57,11 +57,8 @@ public class Comentario {
         this.tareaId = tareaId;
     }
 
-    
-
     @Override
     public String toString() {
         return  "idCometario= " + idCometario + ", comentario= " + comentario + ", fechaAvance= " + fechaAvance + ", idTarea= " + tareaId.getIdTarea();
     }
-
 }

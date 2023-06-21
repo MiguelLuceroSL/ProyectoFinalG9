@@ -75,7 +75,7 @@ public class ProyectoFinalG9 {
                 case 2:
                     System.out.println("Ingrese el nombre del equipo");
                     String nomE = leer.next();
-                    System.out.println("Ingrese el ID del proyecto asignado");
+                    System.out.println("Ingrese el Num. del proyecto asignado");
                     int idE = leer.nextInt();
                     System.out.println("Ingrese la fecha de creacion");
                     System.out.println("Año: ");
@@ -100,9 +100,9 @@ public class ProyectoFinalG9 {
                     miembroD.guardarMiembro(miembro);
                     break;
                 case 4:
-                    System.out.println("Ingrese el ID del equipo");
+                    System.out.println("Ingrese el Num. del equipo");
                     int idEquipo = leer.nextInt();
-                    System.out.println("Ingrese el ID del miembro");
+                    System.out.println("Ingrese el Num. del miembro");
                     int idMiembro = leer.nextInt();
                     System.out.println("Ingrese la fecha de incorporacion");
                     System.out.println("Año: ");
@@ -120,7 +120,7 @@ public class ProyectoFinalG9 {
                 case 5:
                     System.out.println("Ingrese el nombre de la tarea");
                     String nombreT = leer.next();
-                    System.out.println("Ingrese el ID EquipoMiembro");
+                    System.out.println("Ingrese el Num. del EquipoMiembro");
                     int idEqMiT = leer.nextInt();
                     EquipoMiembro equipoMiembroAux = equipoMiembroD.buscarEquipoMiembroPorId(idEqMiT);
                     System.out.println("Ingrese la fecha de creacion");
@@ -151,7 +151,7 @@ public class ProyectoFinalG9 {
                     break;
                 case 6:
                     do {
-                        System.out.println("Ingrese la ID de la tarea");
+                        System.out.println("Ingrese la Num. de la tarea");
                         int idTarea = leer.nextInt();
                         System.out.println("Ingrese el nuevo estado");
                         System.out.println("1- Pendiente");
@@ -178,7 +178,7 @@ public class ProyectoFinalG9 {
                     } while (veri2);
                     break;
                 case 7:
-                    System.out.println("Ingrese la ID de la tarea");
+                    System.out.println("Ingrese la Num. de la tarea");
                     int idTareaCom = leer.nextInt();
                     Tarea tarrea = tareaD.buscarTareaPorId(idTareaCom);
                     System.out.println("Ingrese el comentario");
@@ -202,7 +202,7 @@ public class ProyectoFinalG9 {
                     for (Proyecto proyect : listP) {
                         System.out.println(proyect);
                     }
-                    System.out.println("Ingrese id de Proyecto para corroborar sus tareas: ");
+                    System.out.println("Ingrese Num. de Proyecto para corroborar sus tareas: ");
                     int id = leer.nextInt();
                     tareaD.areasDeproyecto(id);
                     break;
@@ -212,7 +212,7 @@ public class ProyectoFinalG9 {
                     for (Equipo equipe : listEqui) {
                         System.out.println(equipe);
                     }
-                    System.out.println("Ingrese el iD del Equipo o Grupo");
+                    System.out.println("Ingrese el Num. del Equipo o Grupo");
                     int idEq = leer.nextInt();
                     equipoD.infoDeEquipo(idEq);
                     System.out.println("");
@@ -226,19 +226,19 @@ public class ProyectoFinalG9 {
                         op3 = leer.nextInt();
                         switch (op3) {
                             case 1:
-                                System.out.println("Ingrese la ID del proyecto");
+                                System.out.println("Ingrese la Num. del proyecto");
                                 int idProy = leer.nextInt();
                                 proyD.activarDesactivar(idProy);
                                 veri3 = false;
                                 break;
                             case 2:
-                                System.out.println("Ingrese la ID del Equipo");
+                                System.out.println("Ingrese la Num. del Equipo");
                                 int idEquipoo = leer.nextInt();
                                 equipoD.activarDesactivar(idEquipoo);
                                 veri3 = false;
                                 break;
                             case 3:
-                                System.out.println("Ingrese la ID del Miembro");
+                                System.out.println("Ingrese la Num. del Miembro");
                                 int idMiembroo = leer.nextInt();
                                 miembroD.activarDesactivar(idMiembroo);
                                 veri3 = false;
@@ -249,7 +249,7 @@ public class ProyectoFinalG9 {
                     } while (veri3);
                     break;
                 case 11:
-                    System.out.println("Ingrese la ID del MiembroEquipo");
+                    System.out.println("Ingrese la Num. del MiembroEquipo");
                     int idMiEqq = leer.nextInt();
                     equipoMiembroD.borrarMiembroEq(idMiEqq);
                     break;

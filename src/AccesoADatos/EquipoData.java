@@ -16,13 +16,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EquipoData {
+
     private Connection con = null;
     private Conexion conexion;
 
     public EquipoData() {
-
         con = Conexion.getConexion();
-        
     }
 
     public void guardarEquipo(Equipo equipo) {
@@ -72,11 +71,11 @@ public class EquipoData {
                 tarea.setNombre(rs.getString("Tareas asignadas"));
                 eqm = new EquipoMiembro();
                 eqm.setFechaIncorporacion(rs.getDate("fechaIncorporacion").toLocalDate());
-                System.out.println("Nombre del Miembro:       " + miembro.getNombre());
-                System.out.println("Apellido del Miembro:     " + miembro.getApellido());
-                System.out.println("DNI del Miembro:          " + miembro.getDni());
-                System.out.println("Tareas asignadas:         " + tarea.getNombre());
-                System.out.println("Fecha de Incorporación:   " + eqm.getFechaIncorporacion());
+                System.out.println("Nombre del Miembro: " + miembro.getNombre());
+                System.out.println("Apellido del Miembro: " + miembro.getApellido());
+                System.out.println("DNI del Miembro: " + miembro.getDni());
+                System.out.println("Tareas asignadas: " + tarea.getNombre());
+                System.out.println("Fecha de Incorporación: " + eqm.getFechaIncorporacion());
                 System.out.println("");
             }
             rs.close();
@@ -184,8 +183,8 @@ public class EquipoData {
         Miembro miembro;
         Tarea tarea;
         String sql = "SELECT M.nombreM AS 'Nombre del Miembro', M.apellido AS 'Apellido', M.dni AS 'DNI',\n"
-                + "       GROUP_CONCAT(T.nombreT  SEPARATOR ' -  ') AS 'Tareas asignadas', E.fechaCreacion AS 'Fecha de Creación',\n"
-                + "       EM.fechaIncorporacion AS 'Fecha de Incorporación'\n"
+                + " GROUP_CONCAT(T.nombreT  SEPARATOR ' -  ') AS 'Tareas asignadas', E.fechaCreacion AS 'Fecha de Creación',\n"
+                + " EM.fechaIncorporacion AS 'Fecha de Incorporación'\n"
                 + "FROM equipo AS E\n"
                 + "JOIN equipomiembros AS EM ON E.idEquipo = EM.idEquipo\n"
                 + "JOIN miembro AS M ON EM.idMiembro = M.idMiembro\n"
@@ -207,11 +206,11 @@ public class EquipoData {
                 eqm.setFechaIncorporacion(rs.getDate("fechaIncorporacion").toLocalDate());
 
                 String resultado
-                        = "Nombre del Miembro:       " + miembro.getNombre() + "\n"
-                        + "Apellido del Miembro:        " + miembro.getApellido() + "\n"
-                        + "DNI del Miembro:                " + miembro.getDni() + "\n"
-                        + "Tareas asignadas:             " + tarea.getNombre() + "\n"
-                        + "Fecha de Incorporación:    " + eqm.getFechaIncorporacion() + "\n";
+                        = "Nombre del Miembro: " + miembro.getNombre() + "\n"
+                        + "Apellido del Miembro: " + miembro.getApellido() + "\n"
+                        + "DNI del Miembro: " + miembro.getDni() + "\n"
+                        + "Tareas asignadas: " + tarea.getNombre() + "\n"
+                        + "Fecha de Incorporación: " + eqm.getFechaIncorporacion() + "\n";
 
                 resultados.add(resultado);
             }
@@ -221,8 +220,8 @@ public class EquipoData {
         }
         return resultados;
     }
-    
-    public Equipo devolverEq(String nombre){
+
+    public Equipo devolverEq(String nombre) {
         Equipo equipo = new Equipo();
         ProyectoData proD = new ProyectoData();
         Proyecto proyecto = new Proyecto();

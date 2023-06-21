@@ -37,17 +37,17 @@ public class ComentarioData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Comentario "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Comentario " + ex.getMessage());
         }
     }
-    
-    public List<Comentario> consultarComentarios(int idTarea){
+
+    public List<Comentario> consultarComentarios(int idTarea) {
         List<Comentario> listaCo = new ArrayList<>();
         String sql = "SELECT * FROM comentarios WHERE idTarea=?";
         PreparedStatement ps = null;
         Tarea tarea;
         TareaData tareaD = new TareaData();
-        try{
+        try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, idTarea);
             ResultSet rs = ps.executeQuery();
@@ -60,27 +60,27 @@ public class ComentarioData {
                 comentario.setTareaId(tarea);
                 listaCo.add(comentario);
             } else {
-                JOptionPane.showMessageDialog(null, "No existen comentarios en la tarea "+idTarea);
+                JOptionPane.showMessageDialog(null, "No existen comentarios en la tarea " + idTarea);
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR al acceder a la tabla Comentario" + ex.getMessage());
         }
         return listaCo;
     }
-    
-    public void borrarComentario(int idT){
+
+    public void borrarComentario(int idT) {
         try {
             String sql = "DELETE FROM comentarios WHERE idTarea = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,idT);
+            ps.setInt(1, idT);
             int exito = ps.executeUpdate();
-            if (exito==1) {
+            if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Comentario eliminado.");
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo borrar el comentario.");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
     }
 }

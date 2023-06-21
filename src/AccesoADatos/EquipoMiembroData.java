@@ -111,7 +111,7 @@ public class EquipoMiembroData {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 cont++;
             }
         }catch(SQLException ex){

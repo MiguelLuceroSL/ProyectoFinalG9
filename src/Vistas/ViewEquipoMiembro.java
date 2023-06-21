@@ -131,6 +131,15 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
                 "Nombre de Equipo", "Cantidad de Miembros"
             }
         ));
+        tablaE.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tablaEAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane4.setViewportView(tablaE);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -309,6 +318,10 @@ public class ViewEquipoMiembro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "ERROR "+ex.getMessage());
         }
     }//GEN-LAST:event_bInscripcionesActionPerformed
+
+    private void tablaEAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaEAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaEAncestorAdded
 
     public void crearTabla2() {
       

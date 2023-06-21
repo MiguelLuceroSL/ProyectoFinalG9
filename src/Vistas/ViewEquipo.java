@@ -369,10 +369,11 @@ public class ViewEquipo extends javax.swing.JInternalFrame {
 
                 List<String> resultados = equipoData.informeDeEquipo(id);
                 if (!resultados.isEmpty()) {
+                      StringBuilder sb = new StringBuilder();
                     for (String resultado : resultados) {
                         resultado = resultado.substring(0, resultado.length() - 1);
-
-                        txtListaIntegrante.setText(resultado);
+ sb.append(resultado).append("\n\n");
+                        txtListaIntegrante.setText(sb.toString());
                     }
                 } else {
 
